@@ -13,10 +13,10 @@ TextureImporter:
     second: Front_Dive_03
   - first:
       213: -820009831879521655
-    second: Left_Dive
+    second: R_Dive
   - first:
       213: 1172450502876172164
-    second: Right_Dive
+    second: L_Dive
   - first:
       213: 8419493058927033645
     second: Idle_01
@@ -226,7 +226,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left_Dive
+      name: R_Dive
       rect:
         serializedVersion: 2
         x: 0
@@ -247,7 +247,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Right_Dive
+      name: L_Dive
       rect:
         serializedVersion: 2
         x: 270
