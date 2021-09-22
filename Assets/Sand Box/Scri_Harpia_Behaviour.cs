@@ -10,6 +10,9 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     public GameObject _obj_Harpia;
     public AudioSource _musicController;
     public List<AudioClip> _musicas = new List<AudioClip>();
+    public GameObject _obj_Sight;
+
+
 
     private int behaviour;
     private int nextBehaviour;
@@ -29,12 +32,16 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
     void GoToLeft()
     {
-        StopAllCoroutines();
+        StopAllCoroutines(); 
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToLeftEnum());
     }
 
     IEnumerator GoToLeftEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 12), 0.35f, RotateMode.Fast);
@@ -49,11 +56,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoToRight()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToRightEnum());
     }
 
     IEnumerator GoToRightEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, -12), 0.35f, RotateMode.Fast);
@@ -68,11 +79,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoToCenter()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToCenterEnum());
     }
 
     IEnumerator GoToCenterEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0, 0), 2f, false);
@@ -86,11 +101,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoToCharge()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToChargeEnum());
     }
 
     IEnumerator GoToChargeEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 2.5f;
         _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0.85f, 0), 3f, false);
@@ -104,11 +123,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoToLeftCharge()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToLeftChargeEnum());
     }
 
     IEnumerator GoToLeftChargeEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 2.5f;
         _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-1.65f, 0.85f, 0), 3f, false);
@@ -122,11 +145,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoToRightCharge()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToRightChargeEnum());
     }
 
     IEnumerator GoToRightChargeEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 2.5f;
         _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(1.65f, 0.7f, 0), 3f, false);
@@ -140,11 +167,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoDive()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoDiveEnum());
     }
 
     IEnumerator GoDiveEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Atack_Center");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, -0.75f, 0), 1, false);
@@ -159,11 +190,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoLeftDive()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoLeftDiveEnum());
     }
 
     IEnumerator GoLeftDiveEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Atack_Left");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         StartCoroutine(SmoothUpRight());
@@ -176,11 +211,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoToRightAfterDive()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToRightAfterDiveEnum());
     }
 
     IEnumerator GoToRightAfterDiveEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 12), 0.35f, RotateMode.Fast);
@@ -195,11 +234,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoRightDive()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoRightDiveEnum());
     }
 
     IEnumerator GoRightDiveEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Atack_Right");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         StartCoroutine(SmoothUpLeft());
@@ -212,10 +255,14 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void GoToLeftAfterDive()
     {
         StopAllCoroutines();
+        stuckTime = 0;
+        behaviour = nextBehaviour;
         StartCoroutine(GoToLeftAfterDiveEnum());
     }
     IEnumerator GoToLeftAfterDiveEnum()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, -12), 0.35f, RotateMode.Fast);
@@ -235,50 +282,41 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] { 4,5,6,7,8,9,10,11 };
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 1)
             {
-                GoToLeft();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
 
+                GoToLeft();
                 return;
             }
 
             if (nextBehaviour == 2)
             {
-                GoToCenter();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
 
+                GoToCenter();
                 return;
             }
 
             if (nextBehaviour == 3)
             {
-                GoToRight();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
 
+                GoToRight();
                 return;
             }
-
         }
-        
+
         if (behaviour == 1)
         {
             //Caminhos possiveis 2,3,4,6,9
             int[] naoPodeEsses = new int[] { 1, 5, 7, 8, 10, 11 };
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 2)
             {
                 GoToCenter();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
 
                 return;
             }
@@ -286,36 +324,24 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             if (nextBehaviour == 3)
             {
                 GoToRight();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 4)
             {
                 GoToCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 6)
             {
                 GoToLeftCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 9)
             {
                 GoToRightCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -327,50 +353,35 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] {2,5,7,8,10,11};
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 1)
             {
                 GoToLeft();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 3)
             {
                 GoToRight();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
-                return;
+                return; ;
             }
 
             if (nextBehaviour == 4)
             {
                 GoToCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 6)
             {
                 GoToLeftCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 9)
             {
                 GoToRightCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -382,50 +393,35 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] { 3,5,7,8,10,11};
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 1)
             {
                 GoToLeft();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 2)
             {
                 GoToCenter();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 4)
             {
                 GoToCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 6)
             {
                 GoToLeftCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 9)
             {
                 GoToRightCharge();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -436,14 +432,11 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //5
             nextBehaviour = 5;
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 5)
             {
                 GoDive();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -455,32 +448,23 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] { 4,5,6,7,8,9,10,11 };
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 1)
             {
                 GoToLeft();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 2)
             {
                 GoToCenter();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 3)
             {
                 GoToRight();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -491,14 +475,11 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //7
             nextBehaviour = 7;
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 7)
             {
                 GoLeftDive();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -509,14 +490,11 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //8
             nextBehaviour = 8;
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 8)
             {
                 GoToRightAfterDive();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -533,18 +511,12 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             if (nextBehaviour == 1)
             {
                 GoToLeft();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
             if (nextBehaviour == 2)
             {
                 GoToCenter();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
 
@@ -555,14 +527,11 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //10
             nextBehaviour = 10;
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 10)
             {
                 GoRightDive();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
                 return;
             }
         }
@@ -572,14 +541,11 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //11
             nextBehaviour = 11;
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 11)
             {
-                GoToRightAfterDive();
-                behaviour = nextBehaviour;
-                stuckTime = 0;
-
+                GoToLeftAfterDive();
                 return;
             }
 
@@ -591,23 +557,21 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] {1,4,5,6,7,8,9,10,11};
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(nextBehaviour);
+            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 2)
             {
                 GoToCenter();
-                behaviour = nextBehaviour;
                 stuckTime = 0;
-
+                behaviour = nextBehaviour;
                 return;
             }
 
             if (nextBehaviour == 3)
             {
                 GoToRight();
-                behaviour = nextBehaviour;
                 stuckTime = 0;
-
+                behaviour = nextBehaviour;
                 return;
             }
         }
@@ -662,8 +626,21 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     {
 
         behaviour = 0;
+        yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForSeconds(5f);
+        _obj_Sight.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0, 0), 0.4f, false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        _obj_Sight.GetComponent<Transform>().DOShakePosition(3, 0.25f, 80,90,false,true);
+        _musicController.Play();
+
+        yield return new WaitForSeconds(3f);
+
+        _musicController.Stop();
+        _obj_Sight.GetComponent<Transform>().DOLocalMove(new Vector3(0, 3, 0), 1, false);
+
+        yield return new WaitForSeconds(1f);
 
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
@@ -683,9 +660,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
     int RandomRangeExcept(int min, int max, int[] excepts) {
 
+        int[] estados = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
-        int rndNmbr = UnityEngine.Random.Range(1 , max + 1);
+        var final = estados.Except(excepts).ToList();
 
+        int rndNmbr = UnityEngine.Random.Range(0,final.Count);
+        int rndOficial = final[rndNmbr];
+        Debug.LogError(final.Count);
+
+        /*
         for (int i = 1; i < excepts.Length;  i++)
         {
             if (rndNmbr == excepts[i])
@@ -694,15 +677,18 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
                 i = 1;
             }
         }
+        */
 
-        return rndNmbr;
+        Debug.LogWarning(rndOficial);
+        return rndOficial;
 
     }
 
     void ForceUnStuckState()
     {
-        if (stuckTime > 5f)
+        if (stuckTime > 3f)
         {
+            Debug.Log("UnStuck");
             NextBehaviourChoice();
             stuckTime = 0;
         }
