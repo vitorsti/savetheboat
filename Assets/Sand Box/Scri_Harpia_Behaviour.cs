@@ -12,13 +12,10 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     public List<AudioClip> _musicas = new List<AudioClip>();
     public GameObject _obj_Sight;
 
-
-
     private int behaviour;
     private int nextBehaviour;
     private float stuckTime;
 
-    // Start is called before the first frame update
     void Start()
     {
         stuckTime = -5;
@@ -282,8 +279,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] { 4,5,6,7,8,9,10,11 };
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(behaviour + " - > " + nextBehaviour);
-
             if (nextBehaviour == 1)
             {
 
@@ -311,8 +306,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //Caminhos possiveis 2,3,4,6,9
             int[] naoPodeEsses = new int[] { 1, 5, 7, 8, 10, 11 };
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
-
-            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 2)
             {
@@ -353,8 +346,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] {2,5,7,8,10,11};
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(behaviour + " - > " + nextBehaviour);
-
             if (nextBehaviour == 1)
             {
                 GoToLeft();
@@ -393,8 +384,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int[] naoPodeEsses = new int[] { 3,5,7,8,10,11};
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
 
-            Debug.Log(behaviour + " - > " + nextBehaviour);
-
             if (nextBehaviour == 1)
             {
                 GoToLeft();
@@ -432,8 +421,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //5
             nextBehaviour = 5;
 
-            Debug.Log(behaviour + " - > " + nextBehaviour);
-
             if (nextBehaviour == 5)
             {
                 GoDive();
@@ -447,8 +434,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //Caminhos possiveis 1,2,3
             int[] naoPodeEsses = new int[] { 4,5,6,7,8,9,10,11 };
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
-
-            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 1)
             {
@@ -475,8 +460,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //7
             nextBehaviour = 7;
 
-            Debug.Log(behaviour + " - > " + nextBehaviour);
-
             if (nextBehaviour == 7)
             {
                 GoLeftDive();
@@ -489,8 +472,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //8
             nextBehaviour = 8;
-
-            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 8)
             {
@@ -505,8 +486,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //Caminhos possiveis 1,2
             int[] naoPodeEsses = new int[] { 3,4,5,6,7,8,9,10,11};
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
-
-            Debug.Log(nextBehaviour);
 
             if (nextBehaviour == 1)
             {
@@ -527,8 +506,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //10
             nextBehaviour = 10;
 
-            Debug.Log(behaviour + " - > " + nextBehaviour);
-
             if (nextBehaviour == 10)
             {
                 GoRightDive();
@@ -540,8 +517,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //11
             nextBehaviour = 11;
-
-            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 11)
             {
@@ -556,8 +531,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //Caminhos possiveis 2,3
             int[] naoPodeEsses = new int[] {1,4,5,6,7,8,9,10,11};
             nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
-
-            Debug.Log(behaviour + " - > " + nextBehaviour);
 
             if (nextBehaviour == 2)
             {
@@ -666,27 +639,14 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
         int rndNmbr = UnityEngine.Random.Range(0,final.Count);
         int rndOficial = final[rndNmbr];
-        Debug.LogError(final.Count);
 
-        /*
-        for (int i = 1; i < excepts.Length;  i++)
-        {
-            if (rndNmbr == excepts[i])
-            {
-                rndNmbr = UnityEngine.Random.Range(1, max + 1);
-                i = 1;
-            }
-        }
-        */
-
-        Debug.LogWarning(rndOficial);
         return rndOficial;
 
     }
 
     void ForceUnStuckState()
     {
-        if (stuckTime > 3f)
+        if (stuckTime > 5f)
         {
             Debug.Log("UnStuck");
             NextBehaviourChoice();
