@@ -12,12 +12,20 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     public List<AudioClip> _musicas = new List<AudioClip>();
 
     private int behaviour;
-    private int nextbehaviour;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DelayIntro());
+        //StartCoroutine(DelayIntro());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            int[] naoPodeEsses = new int[] { 1, 3, 5, 7, 9, 11 };
+            Debug.LogError(RandomRangeExcept(1, 11, naoPodeEsses));
+        }
     }
 
     void GoToLeft()
@@ -232,6 +240,8 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int index = rand.Next(0, 11 - exclude.Count);
             int nextbehaviour = range.ElementAt(index);
 
+            Debug.Log(behaviour + ' ' + nextbehaviour);
+
             if (nextbehaviour == 1)
             {
                 GoToLeft();
@@ -268,6 +278,8 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int index = rand.Next(0, 11 - exclude.Count);
             int nextbehaviour = range.ElementAt(index);
 
+            Debug.Log(behaviour + ' ' + nextbehaviour);
+
             if (nextbehaviour == 2)
             {
                 GoToCenter();
@@ -308,7 +320,59 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
                 return;
             }
 
-            Debug.LogWarning(nextbehaviour);
+        }
+
+        if (behaviour == 2)
+        {
+            //1,2,3,4,6,9
+            var exclude = new HashSet<int>() { 2, 5, 7, 8, 10, 11 };
+            var range = Enumerable.Range(1, 11).Where(i => !exclude.Contains(i));
+
+            var rand = new System.Random();
+            int index = rand.Next(0, 11 - exclude.Count);
+            int nextbehaviour = range.ElementAt(index);
+
+            Debug.Log(behaviour + ' ' + nextbehaviour);
+
+            if (nextbehaviour == 1)
+            {
+                GoToLeft();
+                behaviour = nextbehaviour;
+
+                return;
+            }
+
+            if (nextbehaviour == 3)
+            {
+                GoToRight();
+                behaviour = nextbehaviour;
+
+                return;
+            }
+
+            if (nextbehaviour == 4)
+            {
+                GoToCharge();
+                behaviour = nextbehaviour;
+
+                return;
+            }
+
+            if (nextbehaviour == 6)
+            {
+                GoToLeftCharge();
+                behaviour = nextbehaviour;
+
+                return;
+            }
+
+            if (nextbehaviour == 9)
+            {
+                GoToRightCharge();
+                behaviour = nextbehaviour;
+
+                return;
+            }
 
         }
 
@@ -322,6 +386,8 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int index = rand.Next(0, 11 - exclude.Count);
             int nextbehaviour = range.ElementAt(index);
 
+            Debug.Log(behaviour + ' ' + nextbehaviour);
+
             if (nextbehaviour == 1)
             {
                 GoToLeft();
@@ -362,66 +428,14 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
                 return;
             }
 
-            Debug.LogWarning(nextbehaviour);
-        }
-
-        if (behaviour == 2)
-        {
-            //1,2,3,4,6,9
-            var exclude = new HashSet<int>() { 2, 5, 7, 8, 10, 11 };
-            var range = Enumerable.Range(1, 11).Where(i => !exclude.Contains(i));
-
-            var rand = new System.Random();
-            int index = rand.Next(0, 11 - exclude.Count);
-            int nextbehaviour = range.ElementAt(index);
-
-            if (nextbehaviour == 1)
-            {
-                GoToLeft();
-                behaviour = nextbehaviour;
-
-                return;
-            }
-
-            if (nextbehaviour == 3)
-            {
-                GoToRight();
-                behaviour = nextbehaviour;
-
-                return;
-            }
-
-            if (nextbehaviour == 4)
-            {
-                GoToCharge();
-                behaviour = nextbehaviour;
-
-                return;
-            }
-
-            if (nextbehaviour == 6)
-            {
-                GoToLeftCharge();
-                behaviour = nextbehaviour;
-
-                return;
-            }
-
-            if (nextbehaviour == 9)
-            {
-                GoToRightCharge();
-                behaviour = nextbehaviour;
-
-                return;
-            }
-
-            Debug.LogWarning(nextbehaviour);
         }
 
         if (behaviour == 4)
         {
             //5
             int nextbehaviour = 5;
+
+            Debug.Log(behaviour + ' ' + nextbehaviour);
 
             if (nextbehaviour == 5)
             {
@@ -431,13 +445,14 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
                 return;
             }
 
-            Debug.LogWarning(nextbehaviour);
         }
 
         if (behaviour == 5)
         {
             //2
             int nextbehaviour = 2;
+
+            Debug.Log(behaviour + ' ' + nextbehaviour);
 
             if (nextbehaviour == 2)
             {
@@ -447,13 +462,14 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
                 return;
             }
 
-            Debug.LogWarning(nextbehaviour);
         }
 
         if (behaviour == 6)
         {
             //7
             int nextbehaviour = 7;
+
+            Debug.Log(behaviour + ' ' + nextbehaviour);
 
             if (nextbehaviour == 7)
             {
@@ -462,13 +478,15 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
                 return;
             }
-            Debug.LogWarning(nextbehaviour);
+
         }
 
         if (behaviour == 7)
         {
             //8
             int nextbehaviour = 8;
+
+            Debug.Log(behaviour + ' ' + nextbehaviour);
 
             if (nextbehaviour == 8)
             {
@@ -478,13 +496,12 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
                 return;
             }
 
-            Debug.LogWarning(nextbehaviour);
         }
 
         if (behaviour == 8)
         {
 
-            //1,2,3
+            //1,2
             var exclude = new HashSet<int>() { 3,4,5,6,7,8,9,10,11 };
             var range = Enumerable.Range(1, 11).Where(i => !exclude.Contains(i));
 
@@ -492,6 +509,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int index = rand.Next(0, 11 - exclude.Count);
             int nextbehaviour = range.ElementAt(index);
 
+            Debug.Log(behaviour + ' ' + nextbehaviour);
 
             if (nextbehaviour == 1)
             {
@@ -509,14 +527,14 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
                 return;
             }
 
-            Debug.LogWarning(nextbehaviour);
-
         }
 
         if (behaviour == 9)
         {
             //10
             int nextbehaviour = 10;
+
+            Debug.Log(behaviour + ' ' + nextbehaviour);
 
             if (nextbehaviour == 10)
             {
@@ -532,6 +550,8 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             //11
             int nextbehaviour = 11;
 
+            Debug.Log(behaviour + ' ' + nextbehaviour);
+
             if (nextbehaviour == 11)
             {
                 GoToRightAfterDive();
@@ -544,7 +564,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
         if (behaviour == 11)
         {
-            //1,2,3
+            //2,3
             var exclude = new HashSet<int>() { 1,4, 5, 6, 7, 8, 9, 10, 11 };
             var range = Enumerable.Range(1, 11).Where(i => !exclude.Contains(i));
 
@@ -552,6 +572,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
             int index = rand.Next(0, 11 - exclude.Count);
             int nextbehaviour = range.ElementAt(index);
 
+            Debug.Log(behaviour + ' ' + nextbehaviour);
 
             if (nextbehaviour == 2)
             {
@@ -637,5 +658,24 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.55f, RotateMode.Fast);
 
         NextBehaviourChoice();
+    }
+
+
+    int RandomRangeExcept(int min, int max, int[] excepts) {
+
+        UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
+        int rndNmbr = UnityEngine.Random.Range(1 , max + 1);
+
+        for (int i = 1; i < excepts.Length;  i++)
+        {
+            if (rndNmbr == excepts[i])
+            {
+                rndNmbr = UnityEngine.Random.Range(1, max + 1);
+                i = 1;
+            }
+        }
+
+        return rndNmbr;
+
     }
 }

@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obj_Harpia: {fileID: 1085515640}
-  _musicController: {fileID: 1571657432}
+  _musicController: {fileID: 1571657433}
   _musicas:
   - {fileID: 8300000, guid: 7a4b3bdf76c509b46b8fccfd6c274eae, type: 3}
   - {fileID: 8300000, guid: f97fb98952e58844594778d05909645a, type: 3}
@@ -2762,9 +2762,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a4b3bdf76c509b46b8fccfd6c274eae, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
