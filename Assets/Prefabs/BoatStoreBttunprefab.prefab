@@ -219,7 +219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4668205771638634538, guid: 93bd2168e71bafa4aa261ad542a3e16e,
+  m_Sprite: {fileID: 8891180011573125036, guid: a8e5730eb6a68d64484abc33da4b5d69,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 2329683407738335691}
   - component: {fileID: 2329683407738335690}
   - component: {fileID: 2329683407738335689}
+  - component: {fileID: 7004151471359907102}
   m_Layer: 5
   m_Name: BoatStoreBttunprefab
   m_TagString: Untagged
@@ -353,3 +354,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7004151471359907102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329683407738335695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1848ba51b3bbcf146bceff13f94cd626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  image: {fileID: 2329683407229497207}

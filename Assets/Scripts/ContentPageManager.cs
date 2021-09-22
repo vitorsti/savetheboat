@@ -7,14 +7,20 @@ using System.Linq;
 public class ContentPageManager : MonoBehaviour
 {
     [Header(" --- the array below is an representation of the scriptableObject holding the boats --- ")]
-    public List<GameObject> boats; public bool getAllBoats, resetBoats, sort;
+    public List<GameObject> boats;
+    public bool getAllBoats, resetBoats, sort;
+    public BoatsValuesContainer boatsData;
     [Header("-------------------------------------------------------------------------------")]
     public List<GameObject> prefabs;
     public GameObject prefab;
     public Text pageInfoTxt;
-    public float itensPerPage;
-    public float totalPages;
-    public int page;
+
+    [SerializeField]
+    private float itensPerPage;
+    [SerializeField]
+    private float totalPages;
+    [SerializeField]
+    private int page;
     int index;
 
     // Start is called before the first frame update
@@ -36,21 +42,33 @@ public class ContentPageManager : MonoBehaviour
 
     private void Awake()
     {
-        if (boats.Count % itensPerPage == 0)
+        boatsData = Resources.Load<BoatsValuesContainer>("ScriptableObjects/BoatsData");
+    }
+
+    private void Start()
+    {
+        CalculatePages();
+        PageTxt();
+
+
+    }
+
+    public void CalculatePages()
+    {
+        if (boatsData.boatsDatas.Length % itensPerPage == 0)
         {
             Debug.Log("integer");
-            float div = boats.Count / itensPerPage;
+            float div = boatsData.boatsDatas.Length / itensPerPage;
             totalPages = div;
         }
         else
         {
             Debug.Log("not integer");
-            float div = boats.Count / itensPerPage;
+            float div = boatsData.boatsDatas.Length / itensPerPage;
             totalPages = (int)div + 1;
         }
 
         page = 1;
-        PageTxt();
     }
 
     public void Spawn(int _page)
@@ -68,7 +86,7 @@ public class ContentPageManager : MonoBehaviour
         {
             int c = (int)itensPerPage * _page;
 
-            for (int i = 0; i < boats.Count; i++)
+            for (int i = 0; i < boatsData.boatsDatas.Length /*boats.Count*/; i++)
             {
                 Debug.Log(i);
                 if (i == c - 1)
@@ -90,16 +108,18 @@ public class ContentPageManager : MonoBehaviour
             {
                 GameObject go = Instantiate(prefab, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
                 prefabs.Add(go);
-                go.GetComponentInChildren<Text>().text = boats[i].name;
+                go.name = boatsData.GetName(i, null);
+                go.GetComponentInChildren<Text>().text = boatsData.GetName(i, null);
             }
         }
         else
         {
-            for (int i = index + 1; i < boats.Count; i++)
+            for (int i = index + 1; i < boatsData.boatsDatas.Length; i++)
             {
                 GameObject go = Instantiate(prefab, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
                 prefabs.Add(go);
-                go.GetComponentInChildren<Text>().text = boats[i].name;
+                go.name = boatsData.GetName(i, null);
+                go.GetComponentInChildren<Text>().text = boatsData.GetName(i, null);
             }
         }
 
