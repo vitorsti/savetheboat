@@ -21,13 +21,7 @@ public class MobSpawner : MonoBehaviour
             GameObject go = Instantiate(possibleMobs[index], pos, Quaternion.identity);
             go.name = possibleMobs[index].name;
 
-            go.GetComponent<IMonster>().Life = 5;
+            //Event
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 }

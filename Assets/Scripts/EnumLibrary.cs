@@ -17,5 +17,15 @@ using UnityEngine;
         Ahead
     }
 
+    public enum EventLibrary
+    {
+        RedTide,
+        Sharknado,
+        Fog,
+        Hurricane,
+        SandStorm,
+        Thunderstorm
+    }
+
     public static float SpawnPosXGap = 0.25f;
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4070133004162518488}
-  - component: {fileID: 4070133004162518489}
   - component: {fileID: 4070133004162518494}
   - component: {fileID: 1874323400141123332}
   m_Layer: 0
@@ -34,24 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4070133004162518489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4070133004162518495}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f4dd8ded850f1f42b784f75421fc285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  rotationSpeed: 8
-  prefab: {fileID: 0}
-  postionName: 
-  screenSide: 0
-  scrPos: {x: 0, y: 0, z: 0}
 --- !u!61 &4070133004162518494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90,11 +71,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f479c9d271f1a1545809dc709e4dc932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 1
+  speed: 0.9
+  coinDrop: 0
+  type: 0
+  spawnPos: 0
   boat: {fileID: 0}
-  _life: 4
-  _speed: 1
-  _coinDrop: 1
-  _type: 0
 --- !u!1 &4070133004454875052
 GameObject:
   m_ObjectHideFlags: 0
