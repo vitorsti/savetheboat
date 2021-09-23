@@ -57,7 +57,7 @@
     <Compile Include="Assets\Scripts\BgSpawn.cs" />
     <Compile Include="Assets\Scripts\EnemyAttackAnimation.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
-    <Compile Include="Assets\Sand Box\Scri_Harpia_Behaviour.cs" />
+    <Compile Include="Assets\Sand Box\Harpia Brasileira\Scri_Harpia_Behaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\HealthManager.cs" />
     <Compile Include="Assets\Scripts\FakeParallax.cs" />
