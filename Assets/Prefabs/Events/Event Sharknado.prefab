@@ -43,3 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06ff42649e70144c91581eead7f4b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventDuration: 15
+  eventType: 0
+  bg: {fileID: 1568224744125632438, guid: cd6e1191da4e33644bc15fc13bce6f89, type: 3}
+  sharkSpeedMultiplier: 2
+  eventMobs:
+  - {fileID: 2590903115841297855, guid: f94bdf60359c4414abac41b96712760a, type: 3}

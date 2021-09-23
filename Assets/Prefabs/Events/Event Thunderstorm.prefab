@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7350f79848fb9e24daab271143a1dc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventDuration: 15
+  eventType: 1

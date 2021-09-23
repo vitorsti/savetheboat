@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static EnumLibrary;
+using static GameLibrary;
 
 public class Monster : MonoBehaviour
 {

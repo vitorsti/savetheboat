@@ -88,6 +88,33 @@ public class SpawnerManager : MonoBehaviour
         // return Random.Range(0, 3);
     }
 
+    public void GetNewListOfMonster(List<GameObject> aerials, List<GameObject> aquatics)
+    {
+        aerialSpawner.GetComponent<MobSpawner>().SetListOfMobs(aerials);
+        aquaticSpawner.GetComponent<MobSpawner>().SetListOfMobs(aquatics);
+    }
+
+    public void ChangeSpawnerToCustomList(List<GameObject> aerials, List<GameObject> aquatics)
+    {
+        aerialSpawner.GetComponent<MobSpawner>().SetCustomList(aerials);
+        aerialSpawner.GetComponent<MobSpawner>().TurnCustomList(true);
+        aquaticSpawner.GetComponent<MobSpawner>().SetCustomList(aquatics);
+        aquaticSpawner.GetComponent<MobSpawner>().TurnCustomList(true);
+    }
+
+    public void ChangeUsingCustomList(bool aerialsTurn, bool aquaticsTurn)
+    {
+        aerialSpawner.GetComponent<MobSpawner>().TurnCustomList(aerialsTurn);
+        aquaticSpawner.GetComponent<MobSpawner>().TurnCustomList(aquaticsTurn);
+    }
+
+    public void ChangeSpeedMultiplier(float aerialMultiplier, float aquaticMultiplier)
+    {
+        aerialSpawner.GetComponent<MobSpawner>().ChangeSpeedMultiplier(aerialMultiplier);
+        aquaticSpawner.GetComponent<MobSpawner>().ChangeSpeedMultiplier(aquaticMultiplier);
+
+    }
+
     public void StopSpawner()
     {
         StopCoroutine(SpawnRoutine());

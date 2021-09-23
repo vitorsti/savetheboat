@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    public class EnumLibrary
+public class GameLibrary
 {
     public enum EnemyType
     {
@@ -25,6 +25,13 @@ using UnityEngine;
         Hurricane,
         SandStorm,
         Thunderstorm
+    }
+
+    public enum EventRegion
+    {
+        Aerial,
+        Aquatic,
+        All
     }
 
     public static float SpawnPosXGap = 0.25f;
