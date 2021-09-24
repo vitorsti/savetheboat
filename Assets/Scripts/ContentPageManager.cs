@@ -6,11 +6,9 @@ using System.Linq;
 
 public class ContentPageManager : MonoBehaviour
 {
-    [Header(" --- the array below is an representation of the scriptableObject holding the boats --- ")]
-    public List<GameObject> boats;
-    public bool getAllBoats, resetBoats, sort;
+
     public BoatsValuesContainer boatsData;
-    [Header("-------------------------------------------------------------------------------")]
+    public List<int> sortedBoats = new List<int>();
     public List<GameObject> prefabs;
     public GameObject prefab;
     public Text pageInfoTxt;
@@ -26,31 +24,59 @@ public class ContentPageManager : MonoBehaviour
     // Start is called before the first frame update
     private void OnValidate()
     {
-        if (getAllBoats)
-        {
-            boats = Resources.LoadAll<GameObject>("boats").ToList();
-            getAllBoats = false;
 
-        }
-
-        if (resetBoats)
-        {
-            boats.Clear();
-            resetBoats = false;
-        }
     }
 
     private void Awake()
     {
         boatsData = Resources.Load<BoatsValuesContainer>("ScriptableObjects/BoatsData");
+        /*for (int i = 0; i < boatsData.boatsStoreDatas.Length; i++)
+        {
+            boatsData.boatsStoreDatas[i].ins = false;
+        }*/
     }
 
     private void Start()
     {
+        SortedBoats();
         CalculatePages();
         PageTxt();
 
+    }
 
+    public void SortedBoats()
+    {
+        for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+        {
+            //instancia o barco selecionado
+            if (boatsData.boatsStoreDatas[n].hasBougth && boatsData.boatsStoreDatas[n].boatSelected)
+            {
+                //sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+            }
+        }
+
+        for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+        {
+            if (boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected)
+            {
+                sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+            }
+        }
+        for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+        {
+            if (!boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected)
+            {
+                sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+            }
+        }
+
+
+        for (int i = 0; i < sortedBoats.Count; i++)
+        {
+
+            Debug.Log(i + " " + sortedBoats[i]);
+        }
     }
 
     public void CalculatePages()
@@ -71,8 +97,11 @@ public class ContentPageManager : MonoBehaviour
         page = 1;
     }
 
+
+
     public void Spawn(int _page)
     {
+
         if (prefabs.Count > 0)
         {
             foreach (GameObject i in prefabs)
@@ -82,11 +111,14 @@ public class ContentPageManager : MonoBehaviour
             prefabs.Clear();
         }
 
+
+
         if (_page != totalPages)
         {
+
             int c = (int)itensPerPage * _page;
 
-            for (int i = 0; i < boatsData.boatsDatas.Length /*boats.Count*/; i++)
+            for (int i = 0; i < sortedBoats.Count /*boats.Count*/; i++)
             {
                 Debug.Log(i);
                 if (i == c - 1)
@@ -101,27 +133,32 @@ public class ContentPageManager : MonoBehaviour
                     //}
                 }
 
-
             }
-
+            //spawn from page 1 to last but one
             for (int i = (index + 1) - ((int)itensPerPage); i < index + 1; i++)
             {
                 GameObject go = Instantiate(prefab, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
                 prefabs.Add(go);
-                go.name = boatsData.GetName(i, null);
-                go.GetComponentInChildren<Text>().text = boatsData.GetName(i, null);
+                go.name = boatsData.GetName(sortedBoats[i], null);
+
             }
         }
         else
         {
-            for (int i = index + 1; i < boatsData.boatsDatas.Length; i++)
+            //spawn last page
+            for (int i = index + 1; i < sortedBoats.Count; i++)
             {
+
                 GameObject go = Instantiate(prefab, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
                 prefabs.Add(go);
-                go.name = boatsData.GetName(i, null);
-                go.GetComponentInChildren<Text>().text = boatsData.GetName(i, null);
+                go.name = boatsData.GetName(sortedBoats[i], null);
+
+
+
             }
         }
+
+        //IEnumerator Sort(_page);
 
 
         /*int temp = (int)itensPerPage;
@@ -133,15 +170,23 @@ public class ContentPageManager : MonoBehaviour
             temp--;
 
         } while (temp > 0);*/
+
+        PageTxt();
+    }
+
+    IEnumerator SpawnEffect()
+    {
+        yield return new WaitForSeconds(1f);
     }
 
     public void PreviousPage()
     {
-        if (page != 1)
-        {
-            page--;
 
-        }
+        if (page != 1)
+            page--;
+        else
+            return;
+
         Spawn(page);
 
         Debug.Log("page: " + page);
@@ -151,10 +196,9 @@ public class ContentPageManager : MonoBehaviour
     public void NextPage()
     {
         if (page != totalPages)
-        {
             page++;
-
-        }
+        else
+            return;
 
         Spawn(page);
 
