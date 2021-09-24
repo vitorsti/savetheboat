@@ -29,7 +29,7 @@ public class EventsManager : MonoBehaviour
     {
         if (!eventOn)
         {
-            int index = 1;//UnityEngine.Random.Range(0, eventList.Count);
+            int index = 5;//UnityEngine.Random.Range(0, eventList.Count); <<<<<<<<<<<<<<<<<<<<<<<<<<
             activeEvent = eventList[index];
             //int eventDuration = eventList[index].eventObj.GetComponent<EventBase>().eventDuration;
             int eventDuration = activeEvent.eventObj.GetComponent<EventBase>().eventDuration;

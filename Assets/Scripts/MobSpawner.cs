@@ -13,6 +13,7 @@ public class MobSpawner : MonoBehaviour
     [Header("Multipliers")]
     public int lifeMultiplier = 1;
     public float speedMultiplier = 1;
+    public float strengthMultiplier = 1;
 
     [Header("Lists")]
     public bool usingCustomList;
@@ -56,6 +57,12 @@ public class MobSpawner : MonoBehaviour
     {
         speedMultiplier = value;
     }
+
+    public void ChangeStrenghtMultiplier(float value)
+    {
+        strengthMultiplier = value;
+    }
+
 
     public void TurnCustomList(bool turn)
     {

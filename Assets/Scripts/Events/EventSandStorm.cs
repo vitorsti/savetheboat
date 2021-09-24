@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class EventSandStorm : EventBase
 {
-    public override void EventCameraPosition()
-    {
-        throw new System.NotImplementedException();
-    }
+    [SerializeField] float speedMultiplier;
 
     public override void EventMechanic()
     {
-        throw new System.NotImplementedException();
+        SpawnerManager.Instance.ChangeSpeedMultiplier(speedMultiplier, 1);
     }
 
     public override void EventVisualEffect()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Sand Storm");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public override void OnDestroy()
     {
-        
+        SpawnerManager.Instance.ChangeSpeedMultiplier();
+    }
+
+    public override void Start()
+    {
+        EventMechanic();
+        EventVisualEffect();
     }
 }

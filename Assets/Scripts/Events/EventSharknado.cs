@@ -6,13 +6,12 @@ public class EventSharknado : EventBase
 {
     public SpriteRenderer bg;
     [SerializeField] int sharkSpeedMultiplier = 2;
-    SpawnerManager spawnerManager;
     public List<GameObject> eventMobs;
 
     public override void EventMechanic()
     {
-        spawnerManager.ChangeSpawnerToCustomList(eventMobs, eventMobs);
-        spawnerManager.ChangeSpeedMultiplier(sharkSpeedMultiplier, sharkSpeedMultiplier);
+        SpawnerManager.Instance.ChangeSpawnerToCustomList(eventMobs, eventMobs);
+        SpawnerManager.Instance.ChangeSpeedMultiplier(sharkSpeedMultiplier, sharkSpeedMultiplier);
     }
 
     public override void EventVisualEffect()
@@ -21,17 +20,15 @@ public class EventSharknado : EventBase
         //bg.sortingOrder = 75;
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
-        spawnerManager.ChangeSpeedMultiplier(1, 1);
-        spawnerManager.ChangeUsingCustomList(false, false);
+        SpawnerManager.Instance.ChangeSpeedMultiplier(1, 1);
+        SpawnerManager.Instance.ChangeUsingCustomList(false, false);
     }
 
-    void Start()
+    public override void Start()
     {
         EventVisualEffect();
-        spawnerManager = FindObjectOfType<SpawnerManager>();
-
         EventMechanic();
     }
 

@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class EventRedTide : EventBase
 {
+    [SerializeField] float speedMultiplier;
+    [SerializeField] float strenghtMultiplier;
+    [SerializeField] Color waterColor;
+
     public override void EventCameraPosition()
     {
-        throw new System.NotImplementedException();
+        CameraController.Singleton.ChangeCameraPos(GameLibrary.cameraPosUnderWater);
     }
 
     public override void EventMechanic()
     {
-        throw new System.NotImplementedException();
+        SpawnerManager.Instance.TurnOffSpawner(false, true);
+        float rng = Random.value;
+
+        if(rng < 0.5f)
+            SpawnerManager.Instance.ChangeSpeedMultiplier(1, speedMultiplier);
+        else
+            SpawnerManager.Instance.ChangeStrenghtMultiplier(1, strenghtMultiplier);
+    }
+
+    public override void OnDestroy()
+    {
+        SpawnerManager.Instance.TurnOffSpawner(true, true);
+        SpawnerManager.Instance.ChangeSpeedMultiplier();
+        SpawnerManager.Instance.ChangeStrenghtMultiplier();
+        CameraController.Singleton.ChangeCameraPos(Vector2.zero);
     }
 
     public override void EventVisualEffect()
     {
-        throw new System.NotImplementedException();
+        // To do
     }
 
-    void Start()
+    public override void Start()
     {
-        
+        EventVisualEffect();
+        EventCameraPosition();
+        EventMechanic();
     }
 }

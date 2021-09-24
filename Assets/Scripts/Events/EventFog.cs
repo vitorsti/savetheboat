@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class EventFog : EventBase
 {
+    public GameObject fog;
+
     public override void EventCameraPosition()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override void EventMechanic()
-    {
-        throw new System.NotImplementedException();
+        CameraController.Singleton.ChangeCameraPos(GameLibrary.cameraPosAboveWater);
     }
 
     public override void EventVisualEffect()
     {
-        throw new System.NotImplementedException();
+        fog = Instantiate(fog, transform);
     }
 
-    private void Start()
+    public override void OnDestroy()
     {
-        //EventDuration = _eventDuration;
-        //Debug.Log(EventDuration);
+        CameraController.Singleton.ChangeCameraPos(Vector2.zero);
+        Destroy(fog);
+    }
+
+    public override void Start()
+    {
+        EventVisualEffect();
+        EventCameraPosition();
     }
 }

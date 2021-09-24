@@ -43,5 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7350f79848fb9e24daab271143a1dc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventDuration: 15
+  eventDuration: 5
   eventType: 1
+  speedMultiplier: 3
+  waterColor: {r: 0, g: 0, b: 0, a: 0}
+  lightnings: {fileID: 0}

@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c42218f68a9db4c8de9cb169fbefd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventDuration: 15
+  eventDuration: 5
   eventType: 0
+  fog: {fileID: 4772746164658670322, guid: 4088bb02abd456d42836f0866f14d740, type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
 {
+    public static SpawnerManager Instance;
+
     public float spawnCycleCooldown;
     public float spawnCooldown;
 
@@ -15,6 +17,7 @@ public class SpawnerManager : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         StartCoroutine(SpawnRoutine());
     }
 
@@ -108,12 +111,23 @@ public class SpawnerManager : MonoBehaviour
         aquaticSpawner.GetComponent<MobSpawner>().TurnCustomList(aquaticsTurn);
     }
 
-    public void ChangeSpeedMultiplier(float aerialMultiplier, float aquaticMultiplier)
+    public void ChangeSpeedMultiplier(float aerialMultiplier = 1, float aquaticMultiplier = 1)
     {
         aerialSpawner.GetComponent<MobSpawner>().ChangeSpeedMultiplier(aerialMultiplier);
         aquaticSpawner.GetComponent<MobSpawner>().ChangeSpeedMultiplier(aquaticMultiplier);
-
     }
+
+    public void ChangeStrenghtMultiplier(float aerialMultiplier = 1, float aquaticMultiplier = 1)
+    {
+        aerialSpawner.GetComponent<MobSpawner>().ChangeStrenghtMultiplier(aerialMultiplier);
+        aquaticSpawner.GetComponent<MobSpawner>().ChangeStrenghtMultiplier(aquaticMultiplier);
+    }
+    public void TurnOffSpawner(bool aerial, bool aquatic)
+    {
+        aerialEnable = aerial;
+        aquaticEnable = aquatic;
+    }
+
 
     public void StopSpawner()
     {

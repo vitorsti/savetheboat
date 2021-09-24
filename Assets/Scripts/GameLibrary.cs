@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameLibrary
+public static class GameLibrary
 {
     public enum EnemyType
     {
@@ -35,4 +35,6 @@ public class GameLibrary
     }
 
     public static float SpawnPosXGap = 0.25f;
+    public static Vector3 cameraPosAboveWater = new Vector3(0, 0.75f, 0);
+    public static Vector3 cameraPosUnderWater = new Vector3(0, -0.75f, 0);
 }

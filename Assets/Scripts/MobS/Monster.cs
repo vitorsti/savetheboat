@@ -9,6 +9,8 @@ public class Monster : MonoBehaviour
 
     public float speed;
 
+    public int strength;
+
     public int coinDrop;
 
     public EnemyType type;

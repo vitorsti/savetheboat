@@ -13,7 +13,9 @@ public abstract class EventBase : MonoBehaviour
 
     public virtual void EventCameraPosition() { }
 
-    public abstract void EventMechanic();
+    public virtual void EventMechanic() { }
 
-    public virtual void Start() { Debug.Log("Spawnou " + eventType + eventDuration); }
+    public abstract void OnDestroy();
+
+    public abstract void Start();
 }

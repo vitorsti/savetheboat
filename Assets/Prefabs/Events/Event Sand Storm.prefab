@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1a38dcc3f5b82408eacb39dfbed55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventDuration: 5
+  eventType: 0
+  speedMultiplier: 3
