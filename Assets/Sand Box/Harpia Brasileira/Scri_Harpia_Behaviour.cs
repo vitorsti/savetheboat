@@ -16,14 +16,24 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     private int nextBehaviour;
     private float stuckTime;
 
+    public int _actualBossHealth;
+    public int _maxBossHealth;
+    private bool _isDead;
+    private int _stageRage;
+
+    private int _boatDamage;
+
     void Start()
     {
-        stuckTime = -5;
-        StartCoroutine(DelayIntro());
+        //Boat Status
+        _boatDamage = 2;
+
+        StartBattle();
     }
 
     private void Update()
     {
+        if(_stageRage >= 2)
         ForceUnStuckState();
     }
 
@@ -43,7 +53,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 12), 0.35f, RotateMode.Fast);
         StartCoroutine(SmoothToCenter()); 
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.65f, 0.85f, 0), 1.5f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.65f, 1.85f, 0), 1.5f, false);
 
         yield return new WaitForSeconds(1f);
 
@@ -66,7 +76,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, -12), 0.35f, RotateMode.Fast);
         StartCoroutine(SmoothToCenter());
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.65f, 0.85f, 0), 1.5f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.65f, 1.85f, 0), 1.5f, false);
 
         yield return new WaitForSeconds(1f);
 
@@ -87,7 +97,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0, 0), 2f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 1, 0), 2f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.35f, RotateMode.Fast);
 
         yield return new WaitForSeconds(1.5f);
@@ -109,7 +119,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 2.5f;
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0.85f, 0), 3f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 1.85f, 0), 3f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.35f, RotateMode.Fast);
 
         yield return new WaitForSeconds(3.5f);
@@ -131,7 +141,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 2.5f;
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-1.65f, 0.85f, 0), 3f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-1.65f, 1.85f, 0), 3f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.35f, RotateMode.Fast);
 
         yield return new WaitForSeconds(3.5f);
@@ -153,7 +163,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 2.5f;
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(1.65f, 0.7f, 0), 3f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(1.65f, 1.7f, 0), 3f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.35f, RotateMode.Fast);
 
         yield return new WaitForSeconds(3.5f);
@@ -175,7 +185,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
         _obj_Harpia.GetComponent<Animator>().Play("Atack_Center");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, -0.75f, 0), 1, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0.5f, 0), 1, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.35f, RotateMode.Fast);
         StartCoroutine(SmoothToUp()); //1s
 
@@ -221,7 +231,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 12), 0.35f, RotateMode.Fast);
         StartCoroutine(SmoothToCenter());
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.65f, 0.85f, 0), 1.5f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.65f, 1.85f, 0), 1.5f, false);
 
         yield return new WaitForSeconds(2.3f);
 
@@ -264,7 +274,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         _obj_Harpia.GetComponent<Animator>().speed = 1;
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, -12), 0.35f, RotateMode.Fast);
         StartCoroutine(SmoothToCenter());
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.65f, 0.85f, 0), 1.5f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.65f, 1.85f, 0), 1.5f, false);
 
         yield return new WaitForSeconds(2f);
 
@@ -561,19 +571,19 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _obj_Harpia.GetComponent<Animator>().Play("Idle");
         _obj_Harpia.GetComponent<Animator>().speed = 1;
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0, 0), 2f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 1, 0), 2f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.1f, RotateMode.Fast);
     }
 
     IEnumerator SmoothUpLeft()
     {
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.2f, -0.85f, 0), 1, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.2f, 0.5f, 0), 1, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, -45), 1f, RotateMode.Fast);
         yield return new WaitForSeconds(0.5f);
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.4f, -0.85f, 0), 0.8f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.4f, 0.5f, 0), 0.8f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, -60), 0.8f, RotateMode.Fast);
         yield return new WaitForSeconds(0.175f);
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-1.65f, 0.85f, 0), 0.85f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-1.65f, 1.85f, 0), 0.85f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, -90), 0.3f, RotateMode.Fast);
         yield return new WaitForSeconds(1f);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.1f, RotateMode.Fast);
@@ -582,36 +592,47 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
 
     IEnumerator SmoothUpRight()
     {
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.2f, -0.85f, 0), 1, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(-0.2f, 0.5f, 0), 1, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 45), 1f, RotateMode.Fast);
         yield return new WaitForSeconds(0.5f);
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.4f, -0.85f, 0), 0.8f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0.4f, 0.5f, 0), 0.8f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 60), 0.8f, RotateMode.Fast);
         yield return new WaitForSeconds(0.175f);
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(1.65f, 0.85f, 0), 0.85f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(1.65f, 1.85f, 0), 0.85f, false);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 90), 0.3f, RotateMode.Fast);
         yield return new WaitForSeconds(1f);
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0,0), 0.1f, RotateMode.Fast);
         //GoToRightAfterDive();
     }
 
-    IEnumerator DelayIntro()
+    void StartBattle()
+    {
+        _isDead = false;
+        _stageRage = 1;
+        DefineBossMaxHealth(100, 1, 1);
+
+        //stuckTime = -5;
+        StartCoroutine(StartBattleEnum());
+    }
+
+    IEnumerator StartBattleEnum()
     {
 
         behaviour = 0;
         yield return new WaitForSeconds(0.5f);
 
-        _obj_Sight.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0, 0), 0.4f, false);
+        _obj_Sight.GetComponent<Transform>().DOLocalMove(new Vector3(0, 1, 0), 0.4f, false);
 
         yield return new WaitForSeconds(0.5f);
 
         _obj_Sight.GetComponent<Transform>().DOShakePosition(3, 0.25f, 80,90,false,true);
+        _musicController.clip = _musicas[3];
         _musicController.Play();
 
         yield return new WaitForSeconds(3f);
 
         _musicController.Stop();
-        _obj_Sight.GetComponent<Transform>().DOLocalMove(new Vector3(0, 3, 0), 1, false);
+        _obj_Sight.GetComponent<Transform>().DOLocalMove(new Vector3(0, 3.5f, 0), 1, false);
 
         yield return new WaitForSeconds(1f);
 
@@ -620,7 +641,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         //Toca Intro
         _musicController.clip = _musicas[0];
         _musicController.Play();
-        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 0.85f, 0), 3f, false);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 1.85f, 0), 3f, false);
 
         yield return new WaitForSeconds(3f);
         _musicController.clip = _musicas[1];
@@ -628,7 +649,49 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         //Toca música
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.55f, RotateMode.Fast);
 
-        NextBehaviourChoice();
+        //NextBehaviourChoice();
+    }
+
+    void EndBattle()
+    {
+        StopAllCoroutines();
+        StartCoroutine(EndBattleEnum());
+    }
+
+    IEnumerator EndBattleEnum()
+    {
+        _actualBossHealth = 0;
+        _stageRage = 0;
+        this.gameObject.GetComponent<Collider2D>().enabled = false;
+
+        _obj_Harpia.GetComponent<Animator>().Play("Idle");
+        _obj_Harpia.GetComponent<Animator>().speed = 1f;
+
+        _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.25f, RotateMode.Fast);
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 1, 0), 3f, false);
+        _musicController.Stop();
+
+        yield return new WaitForSeconds(1f);
+
+        _obj_Harpia.GetComponent<Animator>().Play("Idle");
+        _obj_Harpia.GetComponent<Animator>().speed = 1.5f;
+
+        yield return new WaitForSeconds(1f);
+
+        _obj_Harpia.GetComponent<Animator>().Play("Idle");
+        _obj_Harpia.GetComponent<Animator>().speed = 2.5f;
+
+        yield return new WaitForSeconds(1f);
+
+        _musicController.clip = _musicas[2];
+        _musicController.Play();
+
+        _obj_Harpia.GetComponent<Transform>().DOLocalMove(new Vector3(0, 3.5f, 0), 1, false);
+
+        yield return new WaitForSeconds(2f);
+
+        _musicController.Stop();
+        _isDead = true;
     }
 
     int RandomRangeExcept(int min, int max, int[] excepts) {
@@ -648,7 +711,6 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     {
         if (stuckTime > 5f)
         {
-            Debug.Log("UnStuck");
             NextBehaviourChoice();
             stuckTime = 0;
         }
@@ -656,5 +718,63 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             stuckTime += Time.deltaTime;
         }
+    }
+
+    int GetBossHealth()
+    {
+        return _actualBossHealth;
+    }
+
+    int DefineBossMaxHealth(int baseBossMaxHealth, int dificultModifiy, float bossSequencyModify )
+    {
+        // 3º Boss da dificuldade 1 -> 250  = 100 * 1 * 2,5
+        // 2º Boss da dificuldade 3 -> 525  = 100 * 3 * 1,75
+        // 4º Boss da dificuldade 5 -> 1500 = 100 * 5 * 3;
+        float healthCalculate = baseBossMaxHealth * dificultModifiy * bossSequencyModify;
+        _maxBossHealth = (int) healthCalculate;
+        _actualBossHealth = _maxBossHealth;
+
+        return _actualBossHealth;
+    }
+
+    int DamageBossHealth(int damage)
+    {
+        if ((_actualBossHealth <= (int) _maxBossHealth * 0.75f) && _stageRage == 1)
+        {
+            stuckTime = -5;
+            NextBehaviourChoice();
+            _stageRage += 1;
+            Debug.Log("Rage " + _stageRage);
+        }
+
+        if (_actualBossHealth - damage <= 0)
+        {
+            EndBattle();
+        }
+        else
+        {
+            _actualBossHealth -= damage;
+        }
+
+        return _actualBossHealth;
+    }
+
+    int HealBossHealth(int heal)
+    {
+        if (_actualBossHealth + heal >= _maxBossHealth)
+        {
+            _actualBossHealth = _maxBossHealth;
+        }
+        else
+        {
+            _actualBossHealth += heal;
+        }
+
+        return _actualBossHealth;
+    }
+
+    private void OnMouseDown()
+    {
+        DamageBossHealth(_boatDamage);
     }
 }
