@@ -77,80 +77,9 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
             ChargeLeft();
 
-        if (timmerOn)
-        {
-            timmer1 += Time.deltaTime;
 
-            if (timmer1 >= 0.5f)
-            {
-                Timmer500msCheck(_damageOverTime);
-            }
-        }
+        TimmersOfCharge();
 
-        if (chargeTime)
-        {
-
-            if (_totalDamageOverTime >= (int)(_maxBossHealth * 0.15f))
-            {
-                ChargeFail();
-            }
-
-            if (timmer2 <= tempoDoAtaque)
-            {
-                timmer2 += Time.deltaTime;
-            }
-        }
-
-
-    }
-
-    void ChargeFail()
-    {
-
-        Debug.LogWarning("Falhou o Ataque!");
-
-        timmerOn = false;
-        timmer1 = 0;
-        timmer2 = 0;
-        _totalDamageOverTime = 0;
-        chargeTime = false;
-
-        _obj_Helicoprion.transform.DOPause();   
-
-        //Falhou Direita
-        if (behaviour == 9) 
-            StartCoroutine(FailRightCharge());
-
-        //Falhou Esquerda
-        if (behaviour == 12)
-            StartCoroutine(FailLeftCharge());
-
-    }
-
-    IEnumerator FailRightCharge()
-    {
-        yield return new WaitForSeconds(0.1f);
-
-        //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
-        //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
-
-        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0.8f, -3f, -2f), 4f, false);
-
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
-    }
-
-    IEnumerator FailLeftCharge()
-    {
-        yield return new WaitForSeconds(0.1f);
-
-        //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
-        //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
-
-        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-0.8f, -3f, -2f), 4f, false);
-
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
     }
 
     void StartBattle()
@@ -210,6 +139,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2f, -2f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -228,6 +158,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2f, -2f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -246,6 +177,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2f, -1.25f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -264,6 +196,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2f, -1.25f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -282,6 +215,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2f, -0.5f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -300,6 +234,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2f, -0.5f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -319,6 +254,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 2.5f;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, -1.25f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -337,6 +273,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 2.5f;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2, -1.5f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -379,6 +316,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 2.5f;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, -1.25f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -397,6 +335,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
         //_obj_Helicoprion.GetComponent<Animator>().speed = 2.5f;
 
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2, -1.5f, -2f), 3f, false);
 
         yield return new WaitForSeconds(1f);
@@ -483,6 +422,84 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0.15f, -0.25f, -2f), tempoDoAtaque, false);
     }
 
+
+    void TimmersOfCharge()
+    {
+        if (timmerOn)
+        {
+            timmer1 += Time.deltaTime;
+
+            if (timmer1 >= 0.5f)
+            {
+                Timmer500msCheck(_damageOverTime);
+            }
+        }
+
+        if (chargeTime)
+        {
+
+            if (_totalDamageOverTime >= (int)(_maxBossHealth * 0.15f))
+            {
+                ChargeFail();
+            }
+
+            if (timmer2 <= tempoDoAtaque)
+            {
+                timmer2 += Time.deltaTime;
+            }
+        }
+    }
+
+    void ChargeFail()
+    {
+
+        Debug.LogWarning("Falhou o Ataque!");
+
+        timmerOn = false;
+        timmer1 = 0;
+        timmer2 = 0;
+        _totalDamageOverTime = 0;
+        chargeTime = false;
+
+        _obj_Helicoprion.transform.DOPause();
+
+        //Falhou Direita
+        if (behaviour == 9)
+            StartCoroutine(FailRightCharge());
+
+        //Falhou Esquerda
+        if (behaviour == 12)
+            StartCoroutine(FailLeftCharge());
+
+    }
+
+    IEnumerator FailRightCharge()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
+        //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
+
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0.8f, -3f, -2f), 4f, false);
+
+        yield return new WaitForSeconds(1f);
+        //NextBehaviourChoice();
+    }
+
+    IEnumerator FailLeftCharge()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
+        //_obj_Helicoprion.GetComponent<Animator>().speed = 1;
+
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-0.8f, -3f, -2f), 4f, false);
+
+        yield return new WaitForSeconds(1f);
+        //NextBehaviourChoice();
+    }
+
+
     int DefineBossMaxHealth(int baseBossMaxHealth, int dificultModifiy, float bossSequencyModify)
     {
         // 3º Boss da dificuldade 1 -> 250  = 100 * 1 * 2,5
@@ -505,6 +522,25 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         else
         {
             _actualBossHealth -= damage;
+        }
+
+        return _actualBossHealth;
+    }
+
+    int GetBossHealth()
+    {
+        return _actualBossHealth;
+    }
+
+    int HealBossHealth(int heal)
+    {
+        if (_actualBossHealth + heal >= _maxBossHealth)
+        {
+            _actualBossHealth = _maxBossHealth;
+        }
+        else
+        {
+            _actualBossHealth += heal;
         }
 
         return _actualBossHealth;
