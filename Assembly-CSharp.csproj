@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\HealthManager.cs" />
     <Compile Include="Assets\Scripts\FakeParallax.cs" />
+    <Compile Include="Assets\Scripts\Scri_Helicoprion_Behaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
