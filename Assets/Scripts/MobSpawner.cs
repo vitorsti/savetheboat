@@ -63,7 +63,6 @@ public class MobSpawner : MonoBehaviour
         strengthMultiplier = value;
     }
 
-
     public void TurnCustomList(bool turn)
     {
         usingCustomList = turn;

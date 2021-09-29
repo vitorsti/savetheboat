@@ -6,6 +6,8 @@ public class SpawnerManager : MonoBehaviour
 {
     public static SpawnerManager Instance;
 
+    public int maxSpawnQtd= 2;
+
     public float spawnCycleCooldown;
     public float spawnCooldown;
 
@@ -80,15 +82,18 @@ public class SpawnerManager : MonoBehaviour
 
     public int SpawnQuantity()
     {
-        int maxPossible = 4;
-
         if (aerialEnable && aquaticEnable)
-            return Random.Range(0, maxPossible);
+            return Random.Range(0, (maxSpawnQtd* 2));
         else
-            return Random.Range(0, (maxPossible/2)+1);
+            return Random.Range(1, (maxSpawnQtd));
 
         //TO DO 
         // return Random.Range(0, 3);
+    }
+
+    public void SetSpawnQuantityLimit(int qtd)
+    {
+        maxSpawnQtd = qtd;
     }
 
     public void GetNewListOfMonster(List<GameObject> aerials, List<GameObject> aquatics)
@@ -128,6 +133,11 @@ public class SpawnerManager : MonoBehaviour
         aquaticEnable = aquatic;
     }
 
+    public void SetSpawnerCooldowns(float cycle, float spawn)
+    {
+        spawnCycleCooldown = cycle;
+        spawnCooldown = spawn;
+    }
 
     public void StopSpawner()
     {

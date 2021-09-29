@@ -11,13 +11,23 @@ public class EventsManager : MonoBehaviour
     public bool eventOn;
     public Event activeEvent;
 
+    public List<EventLibrary> possibleEvents;
+
     public List<Event> eventList;
+
+    public static EventsManager Singleton { get; private set; }
 
     [Serializable]
     public struct Event
     {
         public EventLibrary eventName;
         public GameObject eventObj;
+    }
+
+    void Awake()
+    {
+        Singleton = this;
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -29,13 +39,20 @@ public class EventsManager : MonoBehaviour
     {
         if (!eventOn)
         {
-            int index = 5;//UnityEngine.Random.Range(0, eventList.Count); <<<<<<<<<<<<<<<<<<<<<<<<<<
-            activeEvent = eventList[index];
+            int index = UnityEngine.Random.Range(0, possibleEvents.Count);                           //<<<<<<<<<<<<<<<<<<<<<<<<<<  EVENT
+            activeEvent = eventList.Find(x => x.eventName == possibleEvents[index]);
+            //activeEvent = eventList[index];
             //int eventDuration = eventList[index].eventObj.GetComponent<EventBase>().eventDuration;
             int eventDuration = activeEvent.eventObj.GetComponent<EventBase>().eventDuration;
             activeEvent.eventObj = Instantiate(activeEvent.eventObj, transform.parent);
             StartCoroutine(ActiveEventTimerRoutine(eventDuration));
         }
+    }
+
+    public void SetNewEventList(List<EventLibrary> newEvents)
+    {
+        possibleEvents = new List<EventLibrary>();
+        possibleEvents = newEvents;
     }
 
 

@@ -669,11 +669,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 283e3b8d62296e94f98fd6a067d4fbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventCooldown: 3
+  eventCooldown: 5
   eventOn: 0
   activeEvent:
     eventName: 0
     eventObj: {fileID: 0}
+  possibleEvents: 000000000100000002000000030000000400000005000000
   eventList:
   - eventName: 0
     eventObj: {fileID: 1189063439172756263, guid: 88a970d8c3e77b84680ddade5f29edae,
@@ -1347,6 +1348,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -35}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1069499362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1069499364}
+  - component: {fileID: 1069499363}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1069499363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069499362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb36f621ea9b72b458acb2169aa4b04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterCount: 0
+  difficulty: {fileID: 11400000, guid: 77319dd64edf61e4d91227f2d1e1fcb1, type: 2}
+--- !u!4 &1069499364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069499362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.064924836, y: -0.016012497, z: -1.0417211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118091515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3196,7 @@ GameObject:
   - component: {fileID: 1824167869}
   - component: {fileID: 1824167871}
   - component: {fileID: 1824167870}
+  - component: {fileID: 1824167872}
   m_Layer: 0
   m_Name: Barco
   m_TagString: Player
@@ -3290,6 +3337,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1824167872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824167866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901b03bbf666f8e44b0c0a9410059016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strenght: 1
+  currentLife: 0
+  totalLife: 0
+  doubleTapGap: 0.2
+  checkingDoubleTap: 0
+  isDoubleTap: 0
 --- !u!850595691 &1864783737
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -3600,6 +3665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac512455dbbba3428fd5ca1b735eaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpawnQtd: 2
   spawnCycleCooldown: 1.5
   spawnCooldown: 1
   aerialSpawner: {fileID: 1571681614}

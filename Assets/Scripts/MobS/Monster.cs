@@ -59,4 +59,9 @@ public class Monster : MonoBehaviour
         if (life <= 0)
             Destroy(this.gameObject);
     }
+
+    public virtual void OnDestroy()
+    {
+        GameManager.Singleton.MonsterKill();
+    }
 }

@@ -12,11 +12,6 @@ public class Scri_Shark : Monster
         Move();
     }
 
-    private void OnDestroy()
-    {
-        
-    }
-
     //public float Speed { get; set; }
     //public int CoinDrop { get; set; }
     //public int Life { get; set; }
