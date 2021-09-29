@@ -601,19 +601,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
                 return;
             }
         }
-        /*
-        if (behaviour == 9)
-        {
-            //Caminhos possiveis 13
-            nextBehaviour = 13;
 
-            if (nextBehaviour == 13)
-            {
-                ChargeFailRight();
-                return;
-            }
-        }
-        */
         if (behaviour == 10)
         {
             //Caminhos possiveis 11
@@ -637,19 +625,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
                 return;
             }
         }
-        /*
-        if (behaviour == 12)
-        {
-            //Caminhos possiveis 14
-            nextBehaviour = 14;
 
-            if (nextBehaviour == 14)
-            {
-                ChargeFailLeft();
-                return;
-            }
-        }
-        */
         if (behaviour == 13)
         {
             //Caminhos possiveis 2
@@ -677,7 +653,6 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
    
     int RandomRangeExcept(int[] excepts)
     {
-
         int[] estados = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
         UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
         var final = estados.Except(excepts).ToList();
@@ -686,14 +661,11 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         int rndOficial = final[rndNmbr];
 
         return rndOficial;
-
     }
 
     private void OnMouseDown()
     {
-
         ClickOnChargeTime();
-
     }
     void ClickOnChargeTime()
     {
@@ -790,7 +762,6 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         behaviour = nextBehaviour;
 
         StartCoroutine(FailRightCharge());
-
     }
 
     void ChargeFailLeft()
@@ -809,7 +780,6 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         behaviour = nextBehaviour;
 
         StartCoroutine(FailLeftCharge());
-
     }
 
     IEnumerator FailRightCharge()
@@ -852,7 +822,6 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
 
     int DamageBossHealth(int damage)
     {
-
         if (_actualBossHealth - damage <= 0)
         {
             EndBattle();
