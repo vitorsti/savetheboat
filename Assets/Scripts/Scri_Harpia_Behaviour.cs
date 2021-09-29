@@ -287,7 +287,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //Caminhos possiveis 1,2,3
             int[] naoPodeEsses = new int[] { 4,5,6,7,8,9,10,11 };
-            nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
 
             if (nextBehaviour == 1)
             {
@@ -315,7 +315,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //Caminhos possiveis 2,3,4,6,9
             int[] naoPodeEsses = new int[] { 1, 5, 7, 8, 10, 11 };
-            nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
 
             if (nextBehaviour == 2)
             {
@@ -354,7 +354,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {            
             //Caminhos possiveis 1,3,4,6,9
             int[] naoPodeEsses = new int[] {2,5,7,8,10,11};
-            nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
 
             if (nextBehaviour == 1)
             {
@@ -392,7 +392,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //Caminhos possiveis 1,2,4,6,9
             int[] naoPodeEsses = new int[] { 3,5,7,8,10,11};
-            nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
 
             if (nextBehaviour == 1)
             {
@@ -443,7 +443,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //Caminhos possiveis 1,2,3
             int[] naoPodeEsses = new int[] { 4,5,6,7,8,9,10,11 };
-            nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
 
             if (nextBehaviour == 1)
             {
@@ -495,7 +495,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //Caminhos possiveis 1,2
             int[] naoPodeEsses = new int[] { 3,4,5,6,7,8,9,10,11};
-            nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
 
             if (nextBehaviour == 1)
             {
@@ -540,7 +540,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         {
             //Caminhos possiveis 2,3
             int[] naoPodeEsses = new int[] {1,4,5,6,7,8,9,10,11};
-            nextBehaviour = RandomRangeExcept(1, 11, naoPodeEsses);
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
 
             if (nextBehaviour == 2)
             {
@@ -694,7 +694,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         _isDead = true;
     }
 
-    int RandomRangeExcept(int min, int max, int[] excepts) {
+    int RandomRangeExcept(int[] excepts) {
 
         int[] estados = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         UnityEngine.Random.InitState((int)DateTime.Now.Ticks);

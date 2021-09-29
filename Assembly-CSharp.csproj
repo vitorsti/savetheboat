@@ -56,12 +56,12 @@
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\BgSpawn.cs" />
     <Compile Include="Assets\Scripts\EnemyAttackAnimation.cs" />
+    <Compile Include="Assets\Scripts\Scri_Helicoprion_Behaviour.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\Scri_Harpia_Behaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\HealthManager.cs" />
     <Compile Include="Assets\Scripts\FakeParallax.cs" />
-    <Compile Include="Assets\Scripts\Scri_Helicoprion_Behaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

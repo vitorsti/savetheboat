@@ -19,7 +19,6 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
     private bool timmerOn;
     private float timmer2;
     private bool chargeTime;
-    private float timmer3;
 
     public int _actualBossHealth;
     public int _maxBossHealth;
@@ -30,6 +29,8 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
     private int behaviour;
     private int nextBehaviour;
 
+    private bool _isDead;
+
     private void Start()
     {
         DefineBossMaxHealth(100, 1, 1);
@@ -38,54 +39,21 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             StartBattle();
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            GoLeftDown();
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            GoRightDown();
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            GoLeftMiddle();
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            GoRightMiddle();
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-            GoLeftTop();
-
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-            GoRighTop();
-
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-            PrepareRightCharge();
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-            RepositionRightCharge();
-
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-            ChargeRight();
-
-        if (Input.GetKeyDown(KeyCode.Q))
-            PrepareLeftCharge();
-
-        if (Input.GetKeyDown(KeyCode.W))
-            RepositionLeftCharge();
-
-        if (Input.GetKeyDown(KeyCode.E))
-            ChargeLeft();
-
+        }
 
         TimmersOfCharge();
-
     }
 
     void StartBattle()
     {
         _obj_Helicoprion.transform.position = new Vector3(2, -2, -2);
         _obj_Sight.transform.position = new Vector3(0, -3.5f, -4);
+
+        behaviour = nextBehaviour;
 
         StartCoroutine(StartBattleEnum());
     }
@@ -124,11 +92,13 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _musicController.clip = _musicas[1];
         _musicController.Play();
 
-        //NextBehaviourChoice();
+        NextBehaviourChoice();
     }
 
     void GoLeftDown()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(GoToLeftDownEnum());
     }
 
@@ -142,12 +112,15 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2f, -2f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        
+        NextBehaviourChoice();
     }
 
     void GoRightDown()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(GoRightDownEnum());
     }
 
@@ -161,12 +134,14 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2f, -2f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        NextBehaviourChoice();
     }
 
     void GoLeftMiddle()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(GoLeftMiddleEnum());
     }
 
@@ -180,12 +155,14 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2f, -1.25f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        NextBehaviourChoice();
     }
 
     void GoRightMiddle()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(GoRightMiddleEnum());
     }
 
@@ -199,12 +176,14 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2f, -1.25f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        NextBehaviourChoice();
     }
 
     void GoLeftTop()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(GoLeftTopEnum());
     }
 
@@ -218,12 +197,14 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2f, -0.5f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        NextBehaviourChoice();
     }
 
-    void GoRighTop()
+    void GoRightTop()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(GoRighTopEnum());
     }
 
@@ -237,13 +218,14 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2f, -0.5f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        NextBehaviourChoice();
     }
 
     void PrepareRightCharge()
     {
         StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(PrepareRightChargeEnum());
     }
 
@@ -257,12 +239,15 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, -1.25f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+
+        NextBehaviourChoice();
     }
 
     void RepositionRightCharge()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(RepositionRightChargeEnum());
     }
 
@@ -276,12 +261,15 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(2, -1.5f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        
+        NextBehaviourChoice();
     }
 
     void ChargeRight()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(ChargeRightEnum());
     }
 
@@ -301,11 +289,14 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0.15f, -0.25f, -2f), tempoDoAtaque, false);
 
         yield return new WaitForSeconds(tempoDoAtaque);
-        //NextBehaviourChoice();
+        
+        NextBehaviourChoice();
     }
 
     void PrepareLeftCharge()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(PrepareLeftChargeEnum());
     }
 
@@ -319,12 +310,16 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, -1.25f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+        
+        NextBehaviourChoice();
     }
 
     void RepositionLeftCharge()
     {
+
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(RepositionLeftChargeEnum());
     }
 
@@ -338,12 +333,15 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.1f, RotateMode.Fast);
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-2, -1.5f, -2f), 3f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(3f);
+
+        NextBehaviourChoice();
     }
 
     void ChargeLeft()
     {
+        StopAllCoroutines();
+        behaviour = nextBehaviour;
         StartCoroutine(ChargeLeftEnum());
     }
 
@@ -363,7 +361,332 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-0.15f, -0.25f, -2f), tempoDoAtaque, false);
 
         yield return new WaitForSeconds(tempoDoAtaque);
-        //NextBehaviourChoice();
+
+        NextBehaviourChoice();
+    }
+
+    void NextBehaviourChoice()
+    {
+        if (behaviour == 0)
+        {
+            //Caminhos possiveis 1,3,5
+            int[] naoPodeEsses = new int[] { 2,4,6,7,8,9,10,11,12,13,14 };
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
+
+            if (nextBehaviour == 1)
+            {
+                GoLeftDown();
+                return;
+            }
+
+            if (nextBehaviour == 3)
+            {
+                GoLeftMiddle();
+                return;
+            }
+
+            if (nextBehaviour == 5)
+            {
+                GoLeftTop();
+                return;
+            }
+        }
+
+        if (behaviour == 1)
+        {
+            //Caminhos possiveis 2,4,6,7
+            int[] naoPodeEsses = new int[] { 1,3,5,8,9,10,11,12,13,14 };
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
+
+            if (nextBehaviour == 2)
+            {
+                GoRightDown();
+                return;
+            }
+
+            if (nextBehaviour == 4)
+            {
+                GoRightMiddle();
+                return;
+            }
+
+            if (nextBehaviour == 6)
+            {
+                GoRightTop();
+                return;
+            }
+
+            if (nextBehaviour == 7)
+            {
+                PrepareRightCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 2)
+        {
+            //Caminhos possiveis 1,3,5,10
+            int[] naoPodeEsses = new int[] { 2,4,6,7,8,9,11,12,13,14 };
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
+
+            if (nextBehaviour == 1)
+            {
+                GoLeftDown();
+                return;
+            }
+
+            if (nextBehaviour == 3)
+            {
+                GoLeftMiddle();
+                return;
+            }
+
+            if (nextBehaviour == 5)
+            {
+                GoLeftTop();
+                return;
+            }
+
+            if (nextBehaviour == 10)
+            {
+                PrepareLeftCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 3)
+        {
+            //Caminhos possiveis 2,4,6,7
+            int[] naoPodeEsses = new int[] { 1, 3, 5, 8, 9, 10, 11, 12, 13,14 };
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
+
+            if (nextBehaviour == 2)
+            {
+                GoRightDown();
+                return;
+            }
+
+            if (nextBehaviour == 4)
+            {
+                GoRightMiddle();
+                return;
+            }
+
+            if (nextBehaviour == 6)
+            {
+                GoRightTop();
+                return;
+            }
+
+            if (nextBehaviour == 7)
+            {
+                PrepareRightCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 4)
+        {
+            //Caminhos possiveis 1,3,5,10
+            int[] naoPodeEsses = new int[] { 2, 4, 6, 7, 8, 9, 11, 12, 13,14 };
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
+
+            if (nextBehaviour == 1)
+            {
+                GoLeftDown();
+                return;
+            }
+
+            if (nextBehaviour == 3)
+            {
+                GoLeftMiddle();
+                return;
+            }
+
+            if (nextBehaviour == 5)
+            {
+                GoLeftTop();
+                return;
+            }
+
+            if (nextBehaviour == 10)
+            {
+                PrepareLeftCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 5)
+        {
+            //Caminhos possiveis 2,4,6,7
+            int[] naoPodeEsses = new int[] { 1, 3, 5, 8, 9, 10, 11, 12, 13,14 };
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
+
+            if (nextBehaviour == 2)
+            {
+                GoRightDown();
+                return;
+            }
+
+            if (nextBehaviour == 4)
+            {
+                GoRightMiddle();
+                return;
+            }
+
+            if (nextBehaviour == 6)
+            {
+                GoRightTop();
+                return;
+            }
+
+            if (nextBehaviour == 7)
+            {
+                PrepareRightCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 6)
+        {
+            //Caminhos possiveis 1,3,5,10
+            int[] naoPodeEsses = new int[] { 2, 4, 6, 7, 8, 9, 11, 12, 13,14 };
+            nextBehaviour = RandomRangeExcept(naoPodeEsses);
+
+            if (nextBehaviour == 1)
+            {
+                GoLeftDown();
+                return;
+            }
+
+            if (nextBehaviour == 3)
+            {
+                GoLeftMiddle();
+                return;
+            }
+
+            if (nextBehaviour == 5)
+            {
+                GoLeftTop();
+                return;
+            }
+
+            if (nextBehaviour == 10)
+            {
+                PrepareLeftCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 7)
+        {
+            //Caminhos possiveis 8
+            nextBehaviour = 8;
+
+            if (nextBehaviour == 8)
+            {
+                RepositionRightCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 8)
+        {
+            //Caminhos possiveis 9
+            nextBehaviour = 9;
+
+            if (nextBehaviour == 9)
+            {
+                ChargeRight();
+                return;
+            }
+        }
+        /*
+        if (behaviour == 9)
+        {
+            //Caminhos possiveis 13
+            nextBehaviour = 13;
+
+            if (nextBehaviour == 13)
+            {
+                ChargeFailRight();
+                return;
+            }
+        }
+        */
+        if (behaviour == 10)
+        {
+            //Caminhos possiveis 11
+            nextBehaviour = 11;
+
+            if (nextBehaviour == 11)
+            {
+                RepositionLeftCharge();
+                return;
+            }
+        }
+
+        if (behaviour == 11)
+        {
+            //Caminhos possiveis 12
+            nextBehaviour = 12;
+
+            if (nextBehaviour == 12)
+            {
+                ChargeLeft();
+                return;
+            }
+        }
+        /*
+        if (behaviour == 12)
+        {
+            //Caminhos possiveis 14
+            nextBehaviour = 14;
+
+            if (nextBehaviour == 14)
+            {
+                ChargeFailLeft();
+                return;
+            }
+        }
+        */
+        if (behaviour == 13)
+        {
+            //Caminhos possiveis 2
+            nextBehaviour = 2;
+
+            if (nextBehaviour == 2)
+            {
+                GoRightDown();
+                return;
+            }
+        }
+
+        if (behaviour == 14)
+        {
+            //Caminhos possiveis 1
+            nextBehaviour = 1;
+
+            if (nextBehaviour == 1)
+            {
+                GoLeftDown();
+                return;
+            }
+        }
+    }
+   
+    int RandomRangeExcept(int[] excepts)
+    {
+
+        int[] estados = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+        UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
+        var final = estados.Except(excepts).ToList();
+
+        int rndNmbr = UnityEngine.Random.Range(0, final.Count);
+        int rndOficial = final[rndNmbr];
+
+        return rndOficial;
+
     }
 
     private void OnMouseDown()
@@ -386,13 +709,12 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
     {
         if (damage >= _maxBossHealth / 100)
         {
+            StartCoroutine(ShakeDamage());
+
             //Aplica dano no boss
             DamageBossHealth(_damageOverTime);
 
-            StartCoroutine(ShakeDamage());
-
             //Resseta o dano
-            Debug.Log("O dano foi mais de 1%, e foi: " + _damageOverTime);
             _damageOverTime = 0;
 
             //Resseta o timmer
@@ -405,7 +727,6 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
             DamageBossHealth(_damageOverTime);
 
             //Resseta o dano
-            Debug.Log("O dano foi: " + _damageOverTime);
             _damageOverTime = 0;
 
             //Resseta o timmer
@@ -418,10 +739,9 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
     {
         _obj_Helicoprion.transform.DOShakePosition(0.1f, 0.05f, 1, 90, false, false);
         yield return new WaitForSeconds(0.15f);
-        _obj_Helicoprion.transform.DOPause();
+        _obj_Helicoprion.transform.DOKill();
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0.15f, -0.25f, -2f), tempoDoAtaque, false);
     }
-
 
     void TimmersOfCharge()
     {
@@ -438,9 +758,13 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         if (chargeTime)
         {
 
-            if (_totalDamageOverTime >= (int)(_maxBossHealth * 0.15f))
+            if (_totalDamageOverTime >= (int)(_maxBossHealth * 0.15f) && behaviour == 9)
             {
-                ChargeFail();
+                ChargeFailRight();
+            }
+            if (_totalDamageOverTime >= (int)(_maxBossHealth * 0.15f) && behaviour == 12)
+            {
+                ChargeFailLeft();
             }
 
             if (timmer2 <= tempoDoAtaque)
@@ -450,11 +774,27 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         }
     }
 
-    void ChargeFail()
+    void ChargeFailRight()
     {
+        timmerOn = false;
+        timmer1 = 0;
+        timmer2 = 0;
+        _totalDamageOverTime = 0;
+        chargeTime = false;
 
-        Debug.LogWarning("Falhou o Ataque!");
+        _obj_Helicoprion.transform.DOPause();
+        
+        StopAllCoroutines();
 
+        nextBehaviour = 1;
+        behaviour = nextBehaviour;
+
+        StartCoroutine(FailRightCharge());
+
+    }
+
+    void ChargeFailLeft()
+    {
         timmerOn = false;
         timmer1 = 0;
         timmer2 = 0;
@@ -463,13 +803,12 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
 
         _obj_Helicoprion.transform.DOPause();
 
-        //Falhou Direita
-        if (behaviour == 9)
-            StartCoroutine(FailRightCharge());
+        StopAllCoroutines();
 
-        //Falhou Esquerda
-        if (behaviour == 12)
-            StartCoroutine(FailLeftCharge());
+        nextBehaviour = 2;
+        behaviour = nextBehaviour;
+
+        StartCoroutine(FailLeftCharge());
 
     }
 
@@ -482,8 +821,8 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
 
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0.8f, -3f, -2f), 4f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(4.1f);
+        NextBehaviourChoice();
     }
 
     IEnumerator FailLeftCharge()
@@ -495,10 +834,9 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
 
         _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(-0.8f, -3f, -2f), 4f, false);
 
-        yield return new WaitForSeconds(1f);
-        //NextBehaviourChoice();
+        yield return new WaitForSeconds(4.1f);
+        NextBehaviourChoice();
     }
-
 
     int DefineBossMaxHealth(int baseBossMaxHealth, int dificultModifiy, float bossSequencyModify)
     {
@@ -548,8 +886,54 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
 
     void EndBattle()
     {
+        _obj_Helicoprion.GetComponent<Transform>().DOPause();
+        _obj_Helicoprion.GetComponent<Transform>().DOKill();
 
+        StopAllCoroutines();
+
+        _actualBossHealth = 0;
+
+        timmerOn = false;
+        timmer1 = 0;
+        timmer2 = 0;
+        _totalDamageOverTime = 0;
+        chargeTime = false;
+
+        StartCoroutine(EndBattleEnum());
     }
 
+    IEnumerator EndBattleEnum()
+    {
+        this.gameObject.GetComponent<Collider2D>().enabled = false;
+
+        //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
+        //_obj_Helicoprion.GetComponent<Animator>().speed = 1f;
+
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalRotate(Vector3.zero, 0.2f, RotateMode.Fast);
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, -1.25f, 0), 3f, false);
+        _musicController.Stop();
+
+        yield return new WaitForSeconds(1f);
+
+        //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
+        //_obj_Helicoprion.GetComponent<Animator>().speed = 1.5f;
+
+        yield return new WaitForSeconds(1f);
+
+        //_obj_Helicoprion.GetComponent<Animator>().Play("Idle");
+        //_obj_Helicoprion.GetComponent<Animator>().speed = 2.5f;
+
+        yield return new WaitForSeconds(1f);
+
+        _musicController.clip = _musicas[2];
+        _musicController.Play();
+
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, 3.5f, 0), 1, false);
+
+        yield return new WaitForSeconds(2f);
+
+        _musicController.Stop();
+        _isDead = true;
+    }
 
 }
