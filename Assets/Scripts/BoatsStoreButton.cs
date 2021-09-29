@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BoatsStoreButton : MonoBehaviour
 {
-    Button button;
+    public Button button;
     BoatsValuesContainer data;
     public Image image;
     public GameObject boatInfoWindow;
-    public Text boatName;
+    public TextMeshProUGUI boatName;
     public Color bougthColor, selectedColor, notBougth;
     private void Awake()
     {
