@@ -897,7 +897,7 @@ public class Scri_Helicoprion_Behaviour : MonoBehaviour
         _musicController.clip = _musicas[2];
         _musicController.Play();
 
-        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, 3.5f, 0), 1, false);
+        _obj_Helicoprion.GetComponent<Transform>().DOLocalMove(new Vector3(0, -3.5f, 0), 1, false);
 
         yield return new WaitForSeconds(2f);
 
