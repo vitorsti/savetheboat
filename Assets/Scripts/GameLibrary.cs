@@ -4,6 +4,14 @@ using UnityEngine;
 
 public static class GameLibrary
 {
+
+    public static float SpawnPosXGap = 0.25f;
+
+    public static float ScreenSafetyPosX = 0.65f;
+
+    public static Vector3 cameraPosAboveWater = new Vector3(0, 0.75f, 0);
+    public static Vector3 cameraPosUnderWater = new Vector3(0, -0.75f, 0);
+
     public enum EnemyType
     {
         Aerial,
@@ -27,14 +35,20 @@ public static class GameLibrary
         Thunderstorm
     }
 
-    public enum EventRegion
+    public enum Region
     {
         Aerial,
         Aquatic,
         All
     }
 
-    public static float SpawnPosXGap = 0.25f;
-    public static Vector3 cameraPosAboveWater = new Vector3(0, 0.75f, 0);
-    public static Vector3 cameraPosUnderWater = new Vector3(0, -0.75f, 0);
+    public enum PowerUpLibrary
+    {
+        CrimsonHeart,
+        DavyJonesCoin,
+        PoseidonsAmulet,
+        MermaidsAmulet,
+        AquaticScarecrow
+    }
+
 }

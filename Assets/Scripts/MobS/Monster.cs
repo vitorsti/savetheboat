@@ -57,7 +57,10 @@ public class Monster : MonoBehaviour
     {
         life -= damage;
         if (life <= 0)
+        {
+            GameManager.Singleton.IncreaseCoin(coinDrop);
             Destroy(this.gameObject);
+        }
     }
 
     public virtual void OnDestroy()

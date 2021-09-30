@@ -256,6 +256,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &33883213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 33883215}
+  - component: {fileID: 33883214}
+  m_Layer: 0
+  m_Name: PowerUps Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &33883214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33883213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5088c42da4a634440a9a1e1f606e25e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnCooldown: 3
+  maxSpawnCooldown: 6
+  spawnCooldown: 0
+  ySpawn: 2
+  xSpawn: 0.7
+  powerUpOn: 0
+  powerUpSpawned: 0
+  activePowerUp:
+    powerUpName: 0
+    powerUpObj: {fileID: 0}
+  possiblePowerUps: 0000000001000000020000000300000004000000
+  powerUpList:
+  - powerUpName: 0
+    powerUpObj: {fileID: 1371947515335942501, guid: 1f467adb2539e614e9da693fc1680b90,
+      type: 3}
+  - powerUpName: 1
+    powerUpObj: {fileID: 2474906533736125262, guid: be51f9134f07ce74abbaa88625980239,
+      type: 3}
+  - powerUpName: 2
+    powerUpObj: {fileID: 1276634125578828951, guid: 9db0c5b479585ae439315c449bb0d025,
+      type: 3}
+  - powerUpName: 3
+    powerUpObj: {fileID: 625080853321852041, guid: 55d255398a4013d48bf49e833ead0457,
+      type: 3}
+  - powerUpName: 4
+    powerUpObj: {fileID: 7363641443060773899, guid: c9357313f10a16045beee468c1c938a7,
+      type: 3}
+--- !u!4 &33883215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33883213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &73438733
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586301188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17597738, y: 0.17415519, z: -0.9938398}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1378,7 +1448,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterCount: 0
+  coins: 0
+  coinsMultiplier: 1
+  boatSpeed: 0
+  speedMultiplier: 0
   difficulty: {fileID: 11400000, guid: 77319dd64edf61e4d91227f2d1e1fcb1, type: 2}
+  actualLevel:
+    killsToReach: 0
+    spawnQtdLimit: 0
+    spawnCycleCd: 0
+    spawnCd: 0
+    aerialSpawner: 1
+    aerialList: []
+    aquaticSpawner: 1
+    aquaticList: []
+    events: 
 --- !u!4 &1069499364
 Transform:
   m_ObjectHideFlags: 0
@@ -1387,7 +1471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069499362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.064924836, y: -0.016012497, z: -1.0417211}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3352,6 +3436,8 @@ MonoBehaviour:
   strenght: 1
   currentLife: 0
   totalLife: 0
+  invencible: 0
+  boatSpeed: 0
   doubleTapGap: 0.2
   checkingDoubleTap: 0
   isDoubleTap: 0

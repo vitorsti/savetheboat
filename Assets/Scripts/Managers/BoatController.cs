@@ -9,6 +9,10 @@ public class BoatController : MonoBehaviour
     public int currentLife;
     public int totalLife;
 
+    public bool invencible;
+
+    public float boatSpeed;
+
     [Header("Double Tap")]
     public float doubleTapGap;
     public bool checkingDoubleTap;
@@ -34,6 +38,11 @@ public class BoatController : MonoBehaviour
             {
                 hit.transform.gameObject.GetComponent<Monster>().RemoveHealth(strenght);
             }
+
+            if (hit.collider != null && hit.transform.gameObject.tag == "PowerUp")
+            {
+                hit.transform.gameObject.GetComponent<PowerUpBase>().ActivatePowerUp();
+            }
         }
     }
 
@@ -47,9 +56,12 @@ public class BoatController : MonoBehaviour
 
     public void RemoveHealth(int value)
     {
-        currentLife -= value;
-        if (currentLife <= 0)
-            GameOver();
+        if (!invencible)
+        {
+            currentLife -= value;
+            if (currentLife <= 0)
+                GameOver();
+        }
     }
 
     public void HealHealth(int value)
@@ -61,6 +73,11 @@ public class BoatController : MonoBehaviour
             else
                 currentLife += value;
         }
+    }
+
+    public void TurnInvencible(bool turn)
+    {
+        invencible = turn;
     }
 
     IEnumerator DoubleTapCheck()

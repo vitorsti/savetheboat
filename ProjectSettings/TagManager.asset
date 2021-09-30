@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mobs
+  - PowerUp
   layers:
   - Default
   - TransparentFX

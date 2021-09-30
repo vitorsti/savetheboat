@@ -7,7 +7,7 @@ public abstract class EventBase : MonoBehaviour
 {
     public int eventDuration = 15;
 
-    public EventRegion eventType;
+    public Region eventType;
 
     public abstract void EventVisualEffect();
 

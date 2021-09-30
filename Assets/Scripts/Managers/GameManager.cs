@@ -9,8 +9,15 @@ public class GameManager : MonoBehaviour
 
     public int monsterCount;
 
-    [SerializeField] DifficultyHandler difficulty;
+    public int coins;
+    [SerializeField] int coinsMultiplier = 1;
 
+    public float boatSpeed;
+    public float speedMultiplier;
+
+    GameObject boat;
+
+    [SerializeField] DifficultyHandler difficulty;
     [SerializeField] LevelProperties actualLevel;
 
     void Awake()
@@ -21,7 +28,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        boat = GameObject.FindGameObjectWithTag("Player");
         monsterCount = 0;
+        coinsMultiplier = 1;
+        boatSpeed = boat.GetComponent<BoatController>().boatSpeed;
         Invoke("SetNewLevel", 0.5f);
     }
 
@@ -57,7 +67,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    public void IncreaseCoin(int _coins)
+    {
+        coins += (_coins * coinsMultiplier);
+    }
+
+    public void ChangeCoinMultiplier(int value = 1)
+    {
+        coinsMultiplier = value;
+    }
+
+    public void ChangeSpeedMultiplier(int value = 1)
+    {
+        speedMultiplier = value;
+    }
+
     void Update()
     {
         
