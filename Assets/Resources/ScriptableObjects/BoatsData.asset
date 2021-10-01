@@ -68,8 +68,7 @@ MonoBehaviour:
     id: 0
     image: {fileID: 8891180011573125036, guid: a8e5730eb6a68d64484abc33da4b5d69, type: 3}
     boatPrice: 0
-    description: 
-    effectDescription: 
+    description: Just a simple sailboat
     hasBougth: 0
     boatSelected: 0
   - name: boat 2
@@ -77,7 +76,6 @@ MonoBehaviour:
     image: {fileID: 2321454805285783289, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
     boatPrice: 0
     description: 
-    effectDescription: 
     hasBougth: 0
     boatSelected: 0
   - name: boat 3
@@ -85,8 +83,7 @@ MonoBehaviour:
     image: {fileID: 4668205771638634538, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
     boatPrice: 0
     description: 
-    effectDescription: 
-    hasBougth: 1
+    hasBougth: 0
     boatSelected: 0
   - name: boat 4
     id: 3
@@ -94,7 +91,6 @@ MonoBehaviour:
       type: 3}
     boatPrice: 0
     description: 
-    effectDescription: 
     hasBougth: 0
     boatSelected: 0
   - name: boat 5
@@ -102,7 +98,6 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: fe41cf7ef42c22642a7fd491ce3400aa, type: 3}
     boatPrice: 0
     description: 
-    effectDescription: 
     hasBougth: 0
     boatSelected: 0
   - name: boat 6
@@ -111,15 +106,13 @@ MonoBehaviour:
       type: 3}
     boatPrice: 0
     description: 
-    effectDescription: 
-    hasBougth: 1
+    hasBougth: 0
     boatSelected: 0
   - name: boat 7
     id: 6
     image: {fileID: 21300000, guid: 71591cc10c9e32848ba7775851cdd9a8, type: 3}
     boatPrice: 0
     description: 
-    effectDescription: 
     hasBougth: 0
     boatSelected: 0
   - name: boat 8
@@ -127,7 +120,119 @@ MonoBehaviour:
     image: {fileID: 1172450502876172164, guid: b27adab20e6435d41a996aa7022af50d, type: 3}
     boatPrice: 0
     description: 
-    effectDescription: 
-    hasBougth: 1
-    boatSelected: 1
+    hasBougth: 0
+    boatSelected: 0
+  boatsUpgrades:
+  - name: boat 1
+    id: 0
+    healthPrice: 100
+    speedPrice: 100
+    moneyPrice: 100
+    strengthPrice: 100
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 10
+    speedTotalStages: 10
+    moneyTotalStages: 10
+    strengthTotalStages: 10
+  - name: boat 2
+    id: 1
+    healthPrice: 0
+    speedPrice: 0
+    moneyPrice: 0
+    strengthPrice: 0
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 0
+    speedTotalStages: 0
+    moneyTotalStages: 0
+    strengthTotalStages: 0
+  - name: boat 3
+    id: 2
+    healthPrice: 0
+    speedPrice: 0
+    moneyPrice: 0
+    strengthPrice: 0
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 0
+    speedTotalStages: 0
+    moneyTotalStages: 0
+    strengthTotalStages: 0
+  - name: boat 4
+    id: 3
+    healthPrice: 0
+    speedPrice: 0
+    moneyPrice: 0
+    strengthPrice: 0
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 0
+    speedTotalStages: 0
+    moneyTotalStages: 0
+    strengthTotalStages: 0
+  - name: boat 5
+    id: 4
+    healthPrice: 0
+    speedPrice: 0
+    moneyPrice: 0
+    strengthPrice: 0
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 0
+    speedTotalStages: 0
+    moneyTotalStages: 0
+    strengthTotalStages: 0
+  - name: boat 6
+    id: 5
+    healthPrice: 0
+    speedPrice: 0
+    moneyPrice: 0
+    strengthPrice: 0
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 0
+    speedTotalStages: 0
+    moneyTotalStages: 0
+    strengthTotalStages: 0
+  - name: boat 7
+    id: 6
+    healthPrice: 0
+    speedPrice: 0
+    moneyPrice: 0
+    strengthPrice: 0
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 0
+    speedTotalStages: 0
+    moneyTotalStages: 0
+    strengthTotalStages: 0
+  - name: boat 8
+    id: 7
+    healthPrice: 0
+    speedPrice: 0
+    moneyPrice: 0
+    strengthPrice: 0
+    healtStage: 0
+    speedStage: 0
+    moneyStage: 0
+    strengthStage: 0
+    healtTotalStages: 0
+    speedTotalStages: 0
+    moneyTotalStages: 0
+    strengthTotalStages: 0
   store: 0
