@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4070133004162518488}
+  - component: {fileID: 4070133004162518489}
   - component: {fileID: 4070133004162518494}
-  - component: {fileID: -1895600543362520949}
   m_Layer: 0
-  m_Name: Eagle
+  m_Name: old_Eagle
   m_TagString: Mobs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4070133004162518489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070133004162518495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4dd8ded850f1f42b784f75421fc285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  rotationSpeed: 8
+  prefab: {fileID: 0}
+  postionName: 
+  screenSide: 0
+  scrPos: {x: 0, y: 0, z: 0}
 --- !u!61 &4070133004162518494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59,24 +77,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48224932, y: 0.36045814}
   m_EdgeRadius: 0
---- !u!114 &-1895600543362520949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4070133004162518495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add518b43a2fb624f880db80071d97dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
-  speed: 1
-  coinDrop: 0
-  type: 0
-  spawnPos: 0
-  boat: {fileID: 0}
 --- !u!1 &4070133004454875052
 GameObject:
   m_ObjectHideFlags: 0

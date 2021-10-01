@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2590903115841297848}
-  - component: {fileID: 2590903115841297849}
   - component: {fileID: 2590903115841297854}
+  - component: {fileID: 8356480412385613831}
   m_Layer: 0
   m_Name: Shark
-  m_TagString: Untagged
+  m_TagString: Mobs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,30 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2590903115841297855}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70259905, w: 0.711586}
+  m_LocalPosition: {x: 0.012140822, y: -2.502823, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 2590903116085813199}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2590903115841297849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2590903115841297855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f4dd8ded850f1f42b784f75421fc285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  rotationSpeed: 8
-  prefab: {fileID: 2252484908497199149, guid: 7fabdee2aa5595a4b8b7093eee0aacd2, type: 3}
-  postionName: SharkBitePosition
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.272}
 --- !u!61 &2590903115841297854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75,6 +59,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.95944613, y: 0.3916918}
   m_EdgeRadius: 0
+--- !u!114 &8356480412385613831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590903115841297855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f479c9d271f1a1545809dc709e4dc932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1
+  speed: 0.9
+  coinDrop: 0
+  type: 1
+  spawnPos: 0
+  boat: {fileID: 0}
 --- !u!1 &2590903116085813196
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +124,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
