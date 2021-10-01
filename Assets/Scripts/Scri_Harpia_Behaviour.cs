@@ -26,9 +26,13 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
     void Start()
     {
         //Boat Status
-        _boatDamage = 2;
+        //_boatDamage = 2;
 
-        StartBattle();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartBattle();
+        }
+
     }
 
     private void Update()
@@ -649,7 +653,7 @@ public class Scri_Harpia_Behaviour : MonoBehaviour
         //Toca música
         _obj_Harpia.GetComponent<Transform>().DOLocalRotate(new Vector3(0, 0, 0), 0.55f, RotateMode.Fast);
 
-        //NextBehaviourChoice();
+        NextBehaviourChoice();
     }
 
     void EndBattle()
