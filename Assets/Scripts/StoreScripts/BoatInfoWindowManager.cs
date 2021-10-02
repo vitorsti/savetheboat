@@ -102,7 +102,16 @@ public class BoatInfoWindowManager : MonoBehaviour
         {
             upgrades[i].upgradeName.text = upgrades[i].name + ": lvl " + upgrades[i].upgradeStage.value.ToString();
             int index = i;
-            upgrades[i].buyBuytton.onClick.AddListener(delegate { BuyUpgrade(index); });
+            if (data.GetBougth(0, boatName))
+            {
+                upgrades[i].buyBuytton.interactable = true;
+                upgrades[i].buyBuytton.onClick.AddListener(delegate { BuyUpgrade(index); });
+            }
+            else
+            {
+                upgrades[i].buyBuytton.interactable = false;
+                upgrades[i].buyBuytton.GetComponentInChildren<TextMeshProUGUI>().text = "unavailable";
+            }
         }
     }
 
@@ -133,6 +142,7 @@ public class BoatInfoWindowManager : MonoBehaviour
         data.SetHasbougth(0, boatName, true);
         Debug.Log("boat bougth");
         SetChooseBoatButton();
+        SetUpgradeTab();
     }
 
     public void Select()

@@ -15,7 +15,7 @@ MonoBehaviour:
   boatsDatas:
   - name: boat 1
     id: 0
-    image: {fileID: 8891180011573125036, guid: a8e5730eb6a68d64484abc33da4b5d69, type: 3}
+    image: {fileID: 4668205771638634538, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
     health: 0
     speed: 0
     strength: 0
@@ -66,18 +66,20 @@ MonoBehaviour:
   boatsStoreDatas:
   - name: boat 1
     id: 0
-    image: {fileID: 8891180011573125036, guid: a8e5730eb6a68d64484abc33da4b5d69, type: 3}
+    image: {fileID: 4668205771638634538, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
     boatPrice: 0
     description: Just a simple sailboat
-    hasBougth: 0
-    boatSelected: 0
+    hasBougth: 1
+    boatSelected: 1
+    bossDeal: 0
   - name: boat 2
     id: 1
     image: {fileID: 2321454805285783289, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
     boatPrice: 0
     description: 
-    hasBougth: 0
+    hasBougth: 1
     boatSelected: 0
+    bossDeal: 0
   - name: boat 3
     id: 2
     image: {fileID: 4668205771638634538, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
@@ -85,6 +87,7 @@ MonoBehaviour:
     description: 
     hasBougth: 0
     boatSelected: 0
+    bossDeal: 0
   - name: boat 4
     id: 3
     image: {fileID: -4205596143640767049, guid: 93bd2168e71bafa4aa261ad542a3e16e,
@@ -93,6 +96,7 @@ MonoBehaviour:
     description: 
     hasBougth: 0
     boatSelected: 0
+    bossDeal: 0
   - name: boat 5
     id: 4
     image: {fileID: 21300000, guid: fe41cf7ef42c22642a7fd491ce3400aa, type: 3}
@@ -100,6 +104,7 @@ MonoBehaviour:
     description: 
     hasBougth: 0
     boatSelected: 0
+    bossDeal: 1
   - name: boat 6
     id: 5
     image: {fileID: -8516931282441176926, guid: b27adab20e6435d41a996aa7022af50d,
@@ -108,6 +113,7 @@ MonoBehaviour:
     description: 
     hasBougth: 0
     boatSelected: 0
+    bossDeal: 0
   - name: boat 7
     id: 6
     image: {fileID: 21300000, guid: 71591cc10c9e32848ba7775851cdd9a8, type: 3}
@@ -115,6 +121,7 @@ MonoBehaviour:
     description: 
     hasBougth: 0
     boatSelected: 0
+    bossDeal: 0
   - name: boat 8
     id: 7
     image: {fileID: 1172450502876172164, guid: b27adab20e6435d41a996aa7022af50d, type: 3}
@@ -122,10 +129,11 @@ MonoBehaviour:
     description: 
     hasBougth: 0
     boatSelected: 0
+    bossDeal: 0
   boatsUpgrades:
   - name: boat 1
     id: 0
-    healthPrice: 100
+    healthPrice: 150
     speedPrice: 100
     moneyPrice: 100
     strengthPrice: 100

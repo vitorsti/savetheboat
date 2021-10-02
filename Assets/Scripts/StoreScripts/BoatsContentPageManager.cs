@@ -7,12 +7,16 @@ using TMPro;
 
 public class BoatsContentPageManager : MonoBehaviour
 {
-
+    public enum StoreType { normalDeals, bossDeals };
+    public StoreType storeType;
     public BoatsValuesContainer boatsData;
     public List<int> sortedBoats = new List<int>();
     public List<GameObject> prefabs;
     public GameObject prefab;
     public TextMeshProUGUI pageInfoTxt;
+    public GameObject pageIndicatorHolder;
+    public GameObject pageIndicatorPrefab;
+    public List<GameObject> pageIndicatorPrefabs;
 
     [SerializeField]
     private float itensPerPage;
@@ -41,35 +45,68 @@ public class BoatsContentPageManager : MonoBehaviour
     {
         SortedBoats();
         CalculatePages();
-        PageTxt();
+        Spawn(1);
+        PageInfo();
 
     }
 
     public void SortedBoats()
     {
-        for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+        if (storeType == StoreType.normalDeals)
         {
-            //instancia o barco selecionado
-            if (boatsData.boatsStoreDatas[n].hasBougth && boatsData.boatsStoreDatas[n].boatSelected)
+            for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
             {
-                //sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
-                sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                //instancia o barco selecionado
+                if (boatsData.boatsStoreDatas[n].hasBougth && boatsData.boatsStoreDatas[n].boatSelected && !boatsData.boatsStoreDatas[n].bossDeal)
+                {
+                    //sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                    sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                }
             }
-        }
 
-        for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
-        {
-            if (boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected)
+            for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
             {
-                sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                if (boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected && !boatsData.boatsStoreDatas[n].bossDeal)
+                {
+                    sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                }
+            }
+            for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+            {
+                if (!boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected && !boatsData.boatsStoreDatas[n].bossDeal)
+                {
+                    sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                }
             }
         }
-        for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+        if(storeType == StoreType.bossDeals)
         {
-            if (!boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected)
+
+            for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
             {
-                sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                //instancia o barco selecionado
+                if (boatsData.boatsStoreDatas[n].hasBougth && boatsData.boatsStoreDatas[n].boatSelected && boatsData.boatsStoreDatas[n].bossDeal)
+                {
+                    //sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                    sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                }
             }
+
+            for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+            {
+                if (boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected && boatsData.boatsStoreDatas[n].bossDeal)
+                {
+                    sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                }
+            }
+            for (int n = 0; n < boatsData.boatsStoreDatas.Length; n++)
+            {
+                if (!boatsData.boatsStoreDatas[n].hasBougth && !boatsData.boatsStoreDatas[n].boatSelected && boatsData.boatsStoreDatas[n].bossDeal)
+                {
+                    sortedBoats.Add(boatsData.boatsStoreDatas[n].id);
+                }
+            }
+
         }
 
 
@@ -82,20 +119,27 @@ public class BoatsContentPageManager : MonoBehaviour
 
     public void CalculatePages()
     {
-        if (boatsData.boatsDatas.Length % itensPerPage == 0)
+        if (/*boatsData.boatsDatas.Length*/ sortedBoats.Count % itensPerPage == 0)
         {
             Debug.Log("integer");
-            float div = boatsData.boatsDatas.Length / itensPerPage;
+            float div = /*boatsData.boatsDatas.Length*/ sortedBoats.Count / itensPerPage;
             totalPages = div;
         }
         else
         {
             Debug.Log("not integer");
-            float div = boatsData.boatsDatas.Length / itensPerPage;
+            float div = /*boatsData.boatsDatas.Length*/ sortedBoats.Count / itensPerPage;
             totalPages = (int)div + 1;
         }
 
         page = 1;
+        int temp = (int)totalPages;
+        do
+        {
+            GameObject go = Instantiate(pageIndicatorPrefab, pageIndicatorHolder.transform.position, pageIndicatorHolder.transform.rotation, pageIndicatorHolder.transform);
+            pageIndicatorPrefabs.Add(go);
+            temp--;
+        } while (temp > 0);
     }
 
 
@@ -146,16 +190,31 @@ public class BoatsContentPageManager : MonoBehaviour
         }
         else
         {
-            //spawn last page
-            for (int i = index + 1; i < sortedBoats.Count; i++)
+            if (page > 1)
             {
+                //spawn last page
+                for (int i = index + 1; i < sortedBoats.Count; i++)
+                {
 
-                GameObject go = Instantiate(prefab, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
-                prefabs.Add(go);
-                go.name = boatsData.GetName(sortedBoats[i], null);
+                    GameObject go = Instantiate(prefab, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
+                    prefabs.Add(go);
+                    go.name = boatsData.GetName(sortedBoats[i], null);
 
 
 
+                }
+            }
+
+            if (page == 1)
+            {
+                for (int i = index; i < sortedBoats.Count; i++)
+                {
+
+                    GameObject go = Instantiate(prefab, this.gameObject.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
+                    prefabs.Add(go);
+                    go.name = boatsData.GetName(sortedBoats[i], null);
+
+                }
             }
         }
 
@@ -172,7 +231,7 @@ public class BoatsContentPageManager : MonoBehaviour
 
         } while (temp > 0);*/
 
-        PageTxt();
+        PageInfo();
     }
 
     IEnumerator SpawnEffect()
@@ -191,7 +250,7 @@ public class BoatsContentPageManager : MonoBehaviour
         Spawn(page);
 
         Debug.Log("page: " + page);
-        PageTxt();
+        PageInfo();
     }
 
     public void NextPage()
@@ -204,19 +263,26 @@ public class BoatsContentPageManager : MonoBehaviour
         Spawn(page);
 
         Debug.Log("page: " + page);
-        PageTxt();
+        PageInfo();
     }
 
-    void PageTxt()
+    void PageInfo()
     {
-        pageInfoTxt.text = page + " / " + totalPages;
+        pageInfoTxt.text = "page " + page + " of " + totalPages;
+
+        foreach (GameObject i in pageIndicatorPrefabs)
+        {
+            i.GetComponent<Image>().color = Color.white;
+        }
+
+        pageIndicatorPrefabs[page - 1].GetComponent<Image>().color = Color.blue;
     }
 
     public void Refresh()
     {
         SortedBoats();
         CalculatePages();
-        PageTxt();
+        PageInfo();
         Spawn(1);
 
     }

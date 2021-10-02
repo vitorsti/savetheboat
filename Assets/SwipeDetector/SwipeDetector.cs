@@ -46,6 +46,7 @@ public class SwipeDetector : MonoBehaviour
             {
                 var direction = fingerDownPosition.y - fingerUpPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down;
                 SendSwipe(direction);
+
             }
             else
             {

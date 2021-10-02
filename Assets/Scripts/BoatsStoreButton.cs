@@ -50,8 +50,9 @@ public class BoatsStoreButton : MonoBehaviour
 
     public void SpawnBoatInfoWindow()
     {
+        GameObject parent = GameObject.FindWithTag("Store"); 
         Debug.Log("Hello World!! " + this.gameObject.name);
-        GameObject go = Instantiate(boatInfoWindow, this.gameObject.transform.parent.position, Quaternion.identity, this.gameObject.transform.parent.parent.transform);
+        GameObject go = Instantiate(boatInfoWindow, parent.transform.position, Quaternion.identity, parent.transform);
         go.GetComponent<BoatInfoWindowManager>().boatName = this.gameObject.name;
     }
 }

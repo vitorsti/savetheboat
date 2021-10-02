@@ -30,6 +30,7 @@ public class BoatsValuesContainer : ScriptableObject
         public string description;
         public bool hasBougth;
         public bool boatSelected;
+        public bool bossDeal;
         //public bool ins;
     }
     [Serializable]
@@ -141,6 +142,16 @@ public class BoatsValuesContainer : ScriptableObject
             return boatsStoreDatas.FirstOrDefault(x => x.name == _name).hasBougth;
 
     }
+
+    /*public bool GetStoreType(int _id, string _name)
+    {
+
+        if (_name == null || _name == "" || _name == " ")
+            return boatsStoreDatas.FirstOrDefault(x => x.id == _id).bossDeal;
+        else
+            return boatsStoreDatas.FirstOrDefault(x => x.name == _name).bossDeal;
+
+    }*/
 
     public float GetPrice(int _id, string _name)
     {

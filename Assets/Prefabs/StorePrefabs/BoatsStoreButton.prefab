@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   image: {fileID: 6192103708320072662}
-  boatInfoWindow: {fileID: 649576255434138387, guid: 7b6a56ade3402d843b6a16c71ca7b246,
+  boatInfoWindow: {fileID: 3339788328223439047, guid: 7b6a56ade3402d843b6a16c71ca7b246,
     type: 3}
   boatName: {fileID: 6192103706775025693}
   bougthColor: {r: 0, g: 0, b: 1, a: 1}
