@@ -1,15 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using static GameLibrary;
 
 public class Scri_Shark : Monster
 {
     //public Monster monsters;
-
-    private void FixedUpdate()
+    private void Start()
     {
-        Move();
+        Move();    
+    }
+
+    public override void Move()
+    {
+        StartCoroutine(SharkMove());
+    }
+
+    IEnumerator SharkMove()
+    {
+        if (transform.position.x > boat.transform.position.x)
+        {
+            Vector3[] wayPoints = new Vector3[]
+            {                                     
+                                                /*P1*/  //new Vector3(gameObject.transform.position.x         , 3.0f ,-1),
+                                                /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.275f ,0),
+                                                /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f ,0),
+                                                /*B*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y -0.275f ,0),
+                                                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
+                                                /*C*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y - 0.275f ,0), 
+                                                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y+0.5f ,0)
+
+            };
+        }
+
+        yield return new WaitForSeconds(1f);
+
     }
 
     //public float Speed { get; set; }

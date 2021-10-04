@@ -96,7 +96,7 @@ public abstract class PowerUpBase : MonoBehaviour
                                                 /*H*/   new Vector3(gameObject.transform.position.x         , 1.0f ,-1),
                                                 /*P6*/  new Vector3(gameObject.transform.position.x - 0.125f, 0.5f,-1),
                                                 /*I*/   new Vector3(gameObject.transform.position.x + 0.125f, 0.9f ,-1),
-                                                /*J*/   new Vector3(gameObject.transform.position.x         , 0.5f ,-1),
+                                                /*J*/   new Vector3(gameObject.transform.position.x         , 0.5f ,-1)
         };
 
 
