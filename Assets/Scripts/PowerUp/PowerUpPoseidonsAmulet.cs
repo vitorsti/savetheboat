@@ -9,6 +9,8 @@ public class PowerUpPoseidonsAmulet : PowerUpBase
     public override void ActivatePowerUp()
     {
         collected = true;
+        StopAllCoroutines();
+        StartCoroutine(GoToBoat());
         boatController = GameObject.FindGameObjectWithTag("Player").GetComponent<BoatController>();
         PowerUpManager.Singleton.PowerUpCollected(duration);
         boatController.TurnInvencible(true);

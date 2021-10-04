@@ -9,6 +9,8 @@ public class PowerUpDavyJonesCoin : PowerUpBase
     public override void ActivatePowerUp()
     {
         collected = true;
+        StopAllCoroutines();
+        StartCoroutine(GoToBoat());
         GameManager.Singleton.ChangeCoinMultiplier(multiplier);
         PowerUpManager.Singleton.PowerUpCollected(duration);
         Debug.Log(gameObject.name);

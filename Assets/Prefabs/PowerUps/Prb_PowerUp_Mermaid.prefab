@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8926589182373493328}
   m_Layer: 0
   m_Name: Prb_PowerUp_Mermaid
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   collected: 0
+  clicked: 0
   spawnPos: 0
   region: 0
   boat: {fileID: 0}
