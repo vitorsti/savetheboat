@@ -7,9 +7,26 @@ using static GameLibrary;
 public class Scri_Shark : Monster
 {
     //public Monster monsters;
-    private void Start()
+    public override void Start()
     {
-        Move();    
+        boat = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (transform.position.x > SpawnPosXGap)
+            spawnPos = SpawnPos.Ahead;
+        else if (transform.position.x < -SpawnPosXGap)
+            spawnPos = SpawnPos.Behind;
+        else
+            spawnPos = SpawnPos.Beside;
+
+        if (transform.position.x > boat.transform.position.x)
+            //    this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = true;
+            gameObject.transform.DORotate(new Vector3(0, 180, 0), 0.1f, RotateMode.Fast);
+        //else
+        //    this.gameObject.GetComponentInChildren<SpriteRenderer>().flipX = false;
+
+
+        Move();
+
     }
 
     public override void Move()
@@ -19,22 +36,88 @@ public class Scri_Shark : Monster
 
     IEnumerator SharkMove()
     {
-        if (transform.position.x > boat.transform.position.x)
-        {
-            Vector3[] wayPoints = new Vector3[]
-            {                                     
-                                                /*P1*/  //new Vector3(gameObject.transform.position.x         , 3.0f ,-1),
-                                                /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.275f ,0),
-                                                /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f ,0),
-                                                /*B*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y -0.275f ,0),
-                                                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
-                                                /*C*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y - 0.275f ,0), 
-                                                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y+0.5f ,0)
 
-            };
+        if (transform.position.y < 0)
+        {
+            if (transform.position.x > boat.transform.position.x)
+            {
+
+                Vector3[] wayPoints = new Vector3[]
+                {                                     
+                /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.05f ,0),
+                /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f ,0),
+                /*B*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y -0.05f ,0),
+                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
+                /*C*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y - 0.05f ,0), 
+                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y+0.5f ,0)
+
+                };
+
+                gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+
+            }
+            else
+            {
+                Vector3[] wayPoints = new Vector3[]
+                {                                     
+                /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.05f ,0),
+                /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f ,0),
+                /*B*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y -0.05f ,0),
+                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
+                /*C*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y - 0.05f ,0), 
+                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y+0.5f ,0)
+
+                };
+
+                gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+            }
+
+        }
+        else
+        {
+            if (transform.position.x > boat.transform.position.x)
+            {
+
+                Vector3[] wayPoints = new Vector3[]
+                {                                     
+                /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.05f ,0),
+                /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0),
+                /*B*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y -0.05f ,0),
+                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
+                /*C*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y - 0.05f ,0), 
+                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0)
+
+                };
+
+                gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+
+            }
+            else
+            {
+                Vector3[] wayPoints = new Vector3[]
+                {                                     
+                /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.05f ,0),
+                /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0),
+                /*B*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y -0.05f ,0),
+                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
+                /*C*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y - 0.05f ,0), 
+                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0)
+
+                };
+
+                gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+            }
         }
 
-        yield return new WaitForSeconds(1f);
+        //gameObject.transform.DOLookAt(wayPoints[0], 1, AxisConstraint.X, Vector3.up);
+
+        yield return new WaitForSeconds(2.5f);
+
+        //gameObject.transform.DOLookAt(wayPoints[3], 1, AxisConstraint.None, Vector3.up);
+
+        yield return new WaitForSeconds(2.5f);
+
+        Destroy(gameObject);
 
     }
 
