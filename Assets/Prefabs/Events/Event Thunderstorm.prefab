@@ -46,5 +46,5 @@ MonoBehaviour:
   eventDuration: 5
   eventType: 1
   speedMultiplier: 3
-  waterColor: {r: 0, g: 0, b: 0, a: 0}
+  skyColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   lightnings: {fileID: 0}

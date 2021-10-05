@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1067665896729695646
+--- !u!1 &5196746850700925065
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2924089096509893315}
-  - component: {fileID: 8621088485112810115}
+  - component: {fileID: 5196746850700925066}
+  - component: {fileID: 5196746850700925067}
   m_Layer: 0
-  m_Name: Ceu_Paralax_0 (2)
-  m_TagString: Untagged
+  m_Name: Waves Front Panel
+  m_TagString: Waves
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2924089096509893315
+--- !u!4 &5196746850700925066
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067665896729695646}
+  m_GameObject: {fileID: 5196746850700925065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.82, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.875, z: -3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 2710796986728971554}
+  m_Father: {fileID: 5196746851916012353}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8621088485112810115
+--- !u!212 &5196746850700925067
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067665896729695646}
+  m_GameObject: {fileID: 5196746850700925065}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -70,20 +70,19 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 60
-  m_Sprite: {fileID: 6527257885770379910, guid: 8f2ae1ac323f1f64c96a077c1a42e5e2,
-    type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SortingOrder: 240
+  m_Sprite: {fileID: 21300000, guid: 617e963db813fd84981763d3f1791796, type: 3}
+  m_Color: {r: 0, g: 0.7058821, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.83, y: 1.83}
+  m_Size: {x: 5.49, y: 7.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &4609359262745410194
+--- !u!1 &5196746851648765707
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,36 +90,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2880597561368131875}
-  - component: {fileID: 5809425360461022526}
+  - component: {fileID: 5196746851648765700}
+  - component: {fileID: 5196746851648765701}
   m_Layer: 0
-  m_Name: Ceu_Paralax_0 (1)
-  m_TagString: Untagged
+  m_Name: Waves Front UnderWater
+  m_TagString: Waves
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2880597561368131875
+--- !u!4 &5196746851648765700
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4609359262745410194}
+  m_GameObject: {fileID: 5196746851648765707}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.82, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.875, z: -3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 2710796986728971554}
+  m_Father: {fileID: 5196746851916012353}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5809425360461022526
+--- !u!212 &5196746851648765701
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4609359262745410194}
+  m_GameObject: {fileID: 5196746851648765707}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -153,20 +152,19 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 60
-  m_Sprite: {fileID: 6527257885770379910, guid: 8f2ae1ac323f1f64c96a077c1a42e5e2,
-    type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SortingOrder: 240
+  m_Sprite: {fileID: 21300000, guid: 50dd98d035e9dd74da6a7453fc84e1d5, type: 3}
+  m_Color: {r: 0, g: 0.7294118, b: 0.8666667, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.83, y: 1.83}
+  m_Size: {x: 5.49, y: 7.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6773033294767096716
+--- !u!1 &5196746851738419204
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,36 +172,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4182563208480402130}
-  - component: {fileID: 6660516227123273946}
+  - component: {fileID: 5196746851738419205}
+  - component: {fileID: 5196746851738419206}
   m_Layer: 0
-  m_Name: Ceu_Paralax_0
-  m_TagString: Untagged
+  m_Name: Waves Front Reflection
+  m_TagString: Waves
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4182563208480402130
+--- !u!4 &5196746851738419205
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773033294767096716}
+  m_GameObject: {fileID: 5196746851738419204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.875, z: -3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 2710796986728971554}
+  m_Father: {fileID: 5196746851916012353}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6660516227123273946
+--- !u!212 &5196746851738419206
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773033294767096716}
+  m_GameObject: {fileID: 5196746851738419204}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -236,20 +234,19 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 60
-  m_Sprite: {fileID: 6527257885770379910, guid: 8f2ae1ac323f1f64c96a077c1a42e5e2,
-    type: 3}
+  m_SortingOrder: 241
+  m_Sprite: {fileID: 21300000, guid: 7b3207b1975cfd24e9159098e4a91e16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.83, y: 1.83}
+  m_Size: {x: 5.49, y: 7.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8336768998042271740
+--- !u!1 &5196746851916012352
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,81 +254,82 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2710796986728971554}
-  - component: {fileID: 3149629747755526201}
-  - component: {fileID: 3328294382506262808}
-  - component: {fileID: 1580554191692650150}
+  - component: {fileID: 5196746851916012353}
+  - component: {fileID: 5196746851916012355}
+  - component: {fileID: 5196746851916012380}
+  - component: {fileID: 5196746851916012354}
   m_Layer: 0
-  m_Name: Pfb_Ceu_Frente_Paralax
+  m_Name: Waves Paralax
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2710796986728971554
+--- !u!4 &5196746851916012353
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8336768998042271740}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_GameObject: {fileID: 5196746851916012352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.535, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4182563208480402130}
-  - {fileID: 2880597561368131875}
-  - {fileID: 2924089096509893315}
+  - {fileID: 5196746851738419205}
+  - {fileID: 5196746851648765700}
+  - {fileID: 5196746850700925066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3149629747755526201
+--- !u!114 &5196746851916012355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8336768998042271740}
+  m_GameObject: {fileID: 5196746851916012352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58033d7f96fdaf7469c760e0ec39ab87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.05
+  speed: -0.35
   sprite: {fileID: 0}
   sprites: []
   selectSpriteType: 1
---- !u!114 &3328294382506262808
+--- !u!114 &5196746851916012380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8336768998042271740}
+  m_GameObject: {fileID: 5196746851916012352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 703b56ddd527e914b881140329776bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objName: Ceu Frente
+  objName: Waves Paralax
   spawnTrigger: SpawnTrigger
-  prefab: {fileID: 8336768998042271740}
-  spawn: {fileID: 0}
-  _offSetSpawn: {x: 0.2, y: 0, z: 0}
---- !u!61 &1580554191692650150
+  prefab: {fileID: 3304975582570772451, guid: e2cd26f1fcdfcf84d8578b586ff6e023, type: 3}
+  spawner: {fileID: 0}
+  _offSetSpawn: {x: 0.21025, y: 0, z: 0}
+  lastSpawned: {fileID: 0}
+--- !u!61 &5196746851916012354
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8336768998042271740}
+  m_GameObject: {fileID: 5196746851916012352}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.4}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -342,5 +340,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.1}
+  m_Size: {x: 0.125, y: 0.05}
   m_EdgeRadius: 0

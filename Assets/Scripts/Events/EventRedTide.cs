@@ -29,12 +29,14 @@ public class EventRedTide : EventBase
         SpawnerManager.Instance.TurnOffSpawner(true, true);
         SpawnerManager.Instance.ChangeSpeedMultiplier();
         SpawnerManager.Instance.ChangeStrenghtMultiplier();
+        BackgroundHandler.Singleton.ToogleWaveCustomColor(false);
         CameraController.Singleton.ChangeCameraPos(Vector2.zero);
     }
 
     public override void EventVisualEffect()
     {
-        // To do
+        BackgroundHandler.Singleton.ChangeWaveCustomColor(waterColor);
+        BackgroundHandler.Singleton.ToogleWaveCustomColor(true);
     }
 
     public override void Start()

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Mobs
   - PowerUp
+  - Sky Paralax
+  - Waves
   layers:
   - Default
   - TransparentFX
