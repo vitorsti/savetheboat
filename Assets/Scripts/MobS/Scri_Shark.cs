@@ -53,7 +53,11 @@ public class Scri_Shark : Monster
 
                 };
 
-                gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+                gameObject.transform.DOPath(wayPoints, 10, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+
+                yield return new WaitForSeconds(10f);
+
+                Destroy(gameObject);
 
             }
             else
@@ -69,7 +73,11 @@ public class Scri_Shark : Monster
 
                 };
 
-                gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+                gameObject.transform.DOPath(wayPoints, 10, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+
+                yield return new WaitForSeconds(10f);
+
+                Destroy(gameObject);
             }
 
         }
@@ -82,14 +90,18 @@ public class Scri_Shark : Monster
                 {                                     
                 /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.05f ,0),
                 /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0),
-                /*B*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y -0.05f ,0),
-                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
+                /*B*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y - 0.05f ,0),
+                /*P3*/  new Vector3(-gameObject.transform.position.x, -gameObject.transform.position.y ,0), 
                 /*C*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y - 0.05f ,0), 
-                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0)
+                /*D*/   new Vector3(-gameObject.transform.position.x, -gameObject.transform.position.y + 0.5f ,0)
 
                 };
 
                 gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+
+                yield return new WaitForSeconds(5f);
+
+                Destroy(gameObject);
 
             }
             else
@@ -99,26 +111,20 @@ public class Scri_Shark : Monster
                 /*P2*/  new Vector3(boat.transform.position.x, boat.transform.position.y - 0.05f ,0),
                 /*A*/   new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0),
                 /*B*/   new Vector3(boat.transform.position.x - 0.5f, boat.transform.position.y -0.05f ,0),
-                /*P3*/  new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y ,0), 
-                /*C*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y - 0.05f ,0), 
-                /*D*/   new Vector3(-gameObject.transform.position.x, gameObject.transform.position.y - 0.5f ,0)
+                /*P3*/  new Vector3(-gameObject.transform.position.x, -gameObject.transform.position.y ,0), 
+                /*C*/   new Vector3(boat.transform.position.x + 0.5f, boat.transform.position.y - 0.05f ,0),
+                /*D*/   new Vector3(-gameObject.transform.position.x, -gameObject.transform.position.y + 0.5f ,0)
 
                 };
 
                 gameObject.transform.DOPath(wayPoints, 5, PathType.CubicBezier, PathMode.Full3D, 10, Color.black);
+
+                yield return new WaitForSeconds(5f);
+
+                Destroy(gameObject);
+
             }
         }
-
-        //gameObject.transform.DOLookAt(wayPoints[0], 1, AxisConstraint.X, Vector3.up);
-
-        yield return new WaitForSeconds(2.5f);
-
-        //gameObject.transform.DOLookAt(wayPoints[3], 1, AxisConstraint.None, Vector3.up);
-
-        yield return new WaitForSeconds(2.5f);
-
-        Destroy(gameObject);
-
     }
 
     //public float Speed { get; set; }
