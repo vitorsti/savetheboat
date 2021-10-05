@@ -9,6 +9,8 @@ public class PowerUpMermaidsAmulet : PowerUpBase
     public override void ActivatePowerUp()
     {
         collected = true;
+        StopAllCoroutines();
+        StartCoroutine(GoToBoat());
         GameManager.Singleton.ChangeSpeedMultiplier(multiplier);
         PowerUpManager.Singleton.PowerUpCollected(duration);
         Debug.Log(gameObject.name);

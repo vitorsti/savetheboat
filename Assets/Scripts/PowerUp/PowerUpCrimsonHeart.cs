@@ -9,6 +9,8 @@ public class PowerUpCrimsonHeart : PowerUpBase
     public override void ActivatePowerUp()
     {
         collected = true;
+        StopAllCoroutines();
+        StartCoroutine(GoToBoat());
         BoatController boat = GameObject.FindGameObjectWithTag("Player").GetComponent<BoatController>();
         boat.HealHealth(recoveryAmount);
         Destroy(gameObject);

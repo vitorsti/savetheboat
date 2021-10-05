@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using static GameLibrary;
 
 public class Monster : MonoBehaviour
@@ -59,8 +60,15 @@ public class Monster : MonoBehaviour
         if (life <= 0)
         {
             GameManager.Singleton.IncreaseCoin(coinDrop);
-            Destroy(this.gameObject);
+            StartCoroutine(FadeMob());
         }
+    }
+
+    IEnumerator FadeMob()
+    {
+        gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(this.gameObject);
     }
 
     public virtual void OnDestroy()
