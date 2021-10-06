@@ -15,10 +15,12 @@ public class BoatInfoWindowManager : MonoBehaviour
     public struct Upgrades { public string name; public TextMeshProUGUI upgradeName; public Slider upgradeStage; public Button buyBuytton; public float priceMultiplier; public float upPrice; }
     public Upgrades[] upgrades;
     public Button buySelectBttun;
+    public GameObject errorProof;
     public string boatName;
     private void Awake()
     {
         data = Resources.Load<BoatsValuesContainer>("ScriptableObjects/BoatsData");
+        errorProof = Resources.Load<GameObject>("ErrorProof");
         closeBttun.onClick.AddListener(Close);
         Debug.Log(boatName);
     }
@@ -105,7 +107,7 @@ public class BoatInfoWindowManager : MonoBehaviour
             if (data.GetBougth(0, boatName))
             {
                 upgrades[i].buyBuytton.interactable = true;
-                upgrades[i].buyBuytton.onClick.AddListener(delegate { BuyUpgrade(index); });
+                upgrades[i].buyBuytton.onClick.AddListener(delegate { BuyUpgradeCheck(index); });
             }
             else
             {
@@ -139,6 +141,22 @@ public class BoatInfoWindowManager : MonoBehaviour
 
     public void Buy()
     {
+        ErrorProofManager e = FindObjectOfType<ErrorProofManager>();
+        if (e != null)
+            return;
+
+        GameObject go = Instantiate(errorProof, this.transform.position, this.transform.rotation, this.transform);
+        go.GetComponent<ErrorProofManager>().txt.text = "Want to buy boat? \n Price: " + data.GetPrice(0, boatName);
+        go.GetComponent<ErrorProofManager>().yes.onClick.AddListener(BuyConfirm);
+        /*data.SetHasbougth(0, boatName, true);
+        Debug.Log("boat bougth");
+        SetChooseBoatButton();
+        SetUpgradeTab();*/
+    }
+
+
+    public void BuyConfirm()
+    {
         data.SetHasbougth(0, boatName, true);
         Debug.Log("boat bougth");
         SetChooseBoatButton();
@@ -158,6 +176,35 @@ public class BoatInfoWindowManager : MonoBehaviour
         SetBoatSelectedButton();
         BoatsContentPageManager pageManager = FindObjectOfType<BoatsContentPageManager>();
         pageManager.Spawn(pageManager.page);
+    }
+
+    public void BuyUpgradeCheck(int _index)
+    {
+        ErrorProofManager e = FindObjectOfType<ErrorProofManager>();
+        if (e != null)
+            return;
+        float price = 0;
+        switch (_index)
+        {
+            case 0:
+                price = data.GetHealthUpgradePrice(0, boatName);
+                break;
+            case 1:
+                price = data.GetSpeedUpgradePrice(0, boatName);
+
+                break;
+            case 2:
+                price = data.GetStrengthUpgradePrice(0, boatName);
+
+                break;
+            case 3:
+                price = data.GetMoneyUpgradePrice(0, boatName);
+
+                break;
+        }
+        GameObject go = Instantiate(errorProof, this.transform.position, this.transform.rotation, this.transform);
+        go.GetComponent<ErrorProofManager>().txt.text = "Want to buy upgrade? \n Price: " + price;
+        go.GetComponent<ErrorProofManager>().yes.onClick.AddListener(delegate { BuyUpgrade(_index); });
     }
 
     public void BuyUpgrade(int index)
