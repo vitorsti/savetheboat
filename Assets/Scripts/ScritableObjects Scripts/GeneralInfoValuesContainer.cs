@@ -4,28 +4,40 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Linq;
+using ItemTypes;
 
-[CreateAssetMenu(fileName = "EnemiesValuesContainer", menuName = "ScriptableObject/enemiesData")]
-public class EnemiesValuesContainer : ScriptableObject
+namespace ItemTypes
 {
-    public enum EnemieType { fly, sea }
+    public enum Tipos { enemies, boss, gameEvent, powerUp }
+}
+
+[CreateAssetMenu(fileName = "GeneralInfoValuesContainer", menuName = "ScriptableObject/GeneralInfoValuesContainer", order = 0)]
+public class GeneralInfoValuesContainer : ScriptableObject
+{
+    
+    //public enum ItemType{none,enemie, boss, gameEvent, powerUp}
+
     [Serializable]
-    public struct EnemiesData
+    public struct Data
     {
         public string name;
         public int id;
         public float strength;
         public float life;
         public float speed;
-        public EnemieType type;
+        public float moneyReward;
+        public float tokenReward;
+        public Tipos tipos;
+        
         public Sprite image;
         public bool hasFound;
         [TextArea]
         public string description;
+        public float duration;
 
     }
 
-    public EnemiesData[] datas;
+    public Data[] datas;
 
     private void OnValidate()
     {
@@ -113,6 +125,26 @@ public class EnemiesValuesContainer : ScriptableObject
 
     }
 
+    public float GetMoneyReward(int _id, string _name)
+    {
+
+        if (_name == null || _name == "" || _name == " ")
+            return datas.FirstOrDefault(x => x.id == _id).moneyReward;
+        else
+            return datas.FirstOrDefault(x => x.name == _name).moneyReward;
+
+    }
+
+    public float GetTokenReward(int _id, string _name)
+    {
+
+        if (_name == null || _name == "" || _name == " ")
+            return datas.FirstOrDefault(x => x.id == _id).tokenReward;
+        else
+            return datas.FirstOrDefault(x => x.name == _name).tokenReward;
+
+    }
+
     public float GetStrength(int _id, string _name)
     {
 
@@ -123,15 +155,20 @@ public class EnemiesValuesContainer : ScriptableObject
 
     }
 
-    public EnemieType GetType(int _id, string _name)
+    public Tipos GetType(int _id, string _name)
     {
         if (_name == null || _name == "" || _name == " ")
-            return datas.FirstOrDefault(x => x.id == _id).type;
+            return datas.FirstOrDefault(x => x.id == _id).tipos;
         else
-            return datas.FirstOrDefault(x => x.name == _name).type;
+            return datas.FirstOrDefault(x => x.name == _name).tipos;
 
     }
 
-
-
+    public float GetDuration(int _id, string _name)
+    {
+        if (_name == null || _name == "" || _name == " ")
+            return datas.FirstOrDefault(x => x.id == _id).duration;
+        else
+            return datas.FirstOrDefault(x => x.name == _name).duration;
+    }
 }

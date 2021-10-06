@@ -9,25 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea905424efcf4fb45a3397b6134f2235, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c144323785589147888ea9e98112e47, type: 3}
   m_Name: EnemiesData
   m_EditorClassIdentifier: 
   datas:
   - name: Eagle
     id: 0
-    strength: 100
+    strength: 10
     life: 100
-    speed: 100
+    speed: 10
     type: 0
     image: {fileID: 21300000, guid: fe41cf7ef42c22642a7fd491ce3400aa, type: 3}
     hasFound: 0
-    description: An eagle
-  - name: White Shark
+    description: adadadadad
+  - name: Shark
     id: 1
-    strength: 150
-    life: 150
-    speed: 150
-    type: 1
-    image: {fileID: 303420649233120723, guid: b0ddf39a30b67b243a4f1e64d2805e7b, type: 3}
+    strength: 10
+    life: 100
+    speed: 10
+    type: 0
+    image: {fileID: 606708205016773565, guid: b0ddf39a30b67b243a4f1e64d2805e7b, type: 3}
     hasFound: 0
-    description: A fucking shark
+    description: adadadadad

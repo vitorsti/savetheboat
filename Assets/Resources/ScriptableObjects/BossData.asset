@@ -13,11 +13,27 @@ MonoBehaviour:
   m_Name: BossData
   m_EditorClassIdentifier: 
   datas:
-  - name: 
+  - name: Harpia
     id: 0
-    strength: 0
-    life: 0
-    speed: 0
-    image: {fileID: 0}
+    strength: 100
+    life: 1000
+    speed: 100
+    image: {fileID: 4222076187333808267, guid: b27adab20e6435d41a996aa7022af50d, type: 3}
     hasFound: 0
-    description: 
+    description: 'aldijadoajda
+
+      iajdoaijdoajd
+
+      iajdoajdoia'
+  - name: Megalondon
+    id: 1
+    strength: 100
+    life: 1000
+    speed: 100
+    image: {fileID: 21300000, guid: 3b531b0c7275e98498d990539ce0c470, type: 3}
+    hasFound: 0
+    description: 'aldijadoajda
+
+      iajdoaijdoajd
+
+      iajdoajdoia'
