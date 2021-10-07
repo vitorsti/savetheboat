@@ -5,13 +5,17 @@ using UnityEngine;
 public class BgSpawn : MonoBehaviour
 {
     public string objName, spawnTrigger;
-    public GameObject prefab;
-    public Transform spawn;
+    [SerializeField] GameObject prefab;
+    public Transform spawner;
 
     public Vector3 _offSetSpawn;
 
+    //public bool usingCustomColor;
+    public GameObject lastSpawned;
+
     void Awake(){
-        spawn = GameObject.Find("BgSpawner").transform;
+        if(spawner == null)
+            spawner = GameObject.Find("BgSpawner").transform;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,13 +24,17 @@ public class BgSpawn : MonoBehaviour
         {
             //Destroy(other.gameObject);
 
-            GameObject go = Instantiate(prefab, new Vector3(spawn.position.x + _offSetSpawn.x,
-                spawn.position.y +_offSetSpawn.y
-                ,spawn.position.z + _offSetSpawn.z), Quaternion.identity);
+            lastSpawned = Instantiate(prefab, new Vector3(spawner.position.x + _offSetSpawn.x,
+                spawner.position.y +_offSetSpawn.y
+                ,spawner.position.z + _offSetSpawn.z), Quaternion.identity);
 
-            go.transform.SetParent(spawn.gameObject.transform, true);
-            go.name = objName;
+            lastSpawned.transform.SetParent(spawner.gameObject.transform, true);
+            lastSpawned.name = objName;
 
+            if(objName == "Waves Paralax")
+            {
+                gameObject.GetComponentInParent<BackgroundHandler>().lastWave = lastSpawned.gameObject;
+            }
         }
 
     }

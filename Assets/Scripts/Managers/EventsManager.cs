@@ -39,7 +39,7 @@ public class EventsManager : MonoBehaviour
     {
         if (!eventOn)
         {
-            int index = UnityEngine.Random.Range(0, possibleEvents.Count);                           //<<<<<<<<<<<<<<<<<<<<<<<<<<  EVENT
+            int index = 0;//UnityEngine.Random.Range(0, possibleEvents.Count);                           //<<<<<<<<<<<<<<<<<<<<<<<<<<  EVENT
             activeEvent = eventList.Find(x => x.eventName == possibleEvents[index]);
             //activeEvent = eventList[index];
             //int eventDuration = eventList[index].eventObj.GetComponent<EventBase>().eventDuration;
@@ -54,7 +54,6 @@ public class EventsManager : MonoBehaviour
         possibleEvents = new List<EventLibrary>();
         possibleEvents = newEvents;
     }
-
 
     public IEnumerator ActiveEventTimerRoutine(int duration)
     {

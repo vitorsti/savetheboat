@@ -49,3 +49,5 @@ MonoBehaviour:
   sharkSpeedMultiplier: 2
   eventMobs:
   - {fileID: 2590903115841297855, guid: f94bdf60359c4414abac41b96712760a, type: 3}
+  skyColor: {r: 0.3962264, g: 0.38314345, b: 0.38314345, a: 1}
+  waterColor: {r: 0.080767184, g: 0.28453505, b: 0.5188679, a: 1}

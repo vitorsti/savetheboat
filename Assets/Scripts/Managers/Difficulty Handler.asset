@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - killsToReach: 0
-    spawnQtdLimit: 2
+    spawnQtdLimit: 5
     spawnCycleCd: 2
     spawnCd: 1.5
     aerialSpawner: 1
@@ -37,8 +37,8 @@ MonoBehaviour:
     events: 000000000100000002000000030000000400000005000000
   - killsToReach: 6
     spawnQtdLimit: 8
-    spawnCycleCd: 1
-    spawnCd: 0.5
+    spawnCycleCd: 1.5
+    spawnCd: 1
     aerialSpawner: 1
     aerialList:
     - {fileID: 2590903115841297855, guid: f94bdf60359c4414abac41b96712760a, type: 3}

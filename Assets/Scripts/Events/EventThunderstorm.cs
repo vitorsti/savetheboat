@@ -5,8 +5,8 @@ using UnityEngine;
 public class EventThunderstorm : EventBase
 {
     [SerializeField] float speedMultiplier;
-    [SerializeField] Color waterColor;
     [SerializeField] GameObject lightnings;
+    [SerializeField] Color skyColor;
 
     public override void EventCameraPosition()
     {
@@ -23,12 +23,14 @@ public class EventThunderstorm : EventBase
     {
         SpawnerManager.Instance.TurnOffSpawner(true, true);
         SpawnerManager.Instance.ChangeSpeedMultiplier();
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(false);
         CameraController.Singleton.ChangeCameraPos(Vector2.zero);
     }
 
     public override void EventVisualEffect()
     {
-        // To do
+        BackgroundHandler.Singleton.ChangeSkyCustomColor(skyColor);
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(true);
     }
 
     public override void Start()

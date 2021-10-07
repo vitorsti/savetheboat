@@ -8,6 +8,10 @@ public class EventSharknado : EventBase
     [SerializeField] int sharkSpeedMultiplier = 2;
     public List<GameObject> eventMobs;
 
+    [SerializeField] Color skyColor;
+    [SerializeField] Color waterColor;
+
+
     public override void EventMechanic()
     {
         SpawnerManager.Instance.ChangeSpawnerToCustomList(eventMobs, eventMobs);
@@ -17,12 +21,15 @@ public class EventSharknado : EventBase
     public override void EventVisualEffect()
     {
         bg = Instantiate(bg, transform);
+        BackgroundHandler.Singleton.ChangeSkyCustomColor(skyColor);
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(true);
         //bg.sortingOrder = 75;
     }
 
     public override void OnDestroy()
     {
         SpawnerManager.Instance.ChangeSpeedMultiplier(1, 1);
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(false);
         SpawnerManager.Instance.ChangeUsingCustomList(false, false);
     }
 

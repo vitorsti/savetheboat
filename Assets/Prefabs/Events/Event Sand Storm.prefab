@@ -46,3 +46,5 @@ MonoBehaviour:
   eventDuration: 5
   eventType: 0
   speedMultiplier: 3
+  skyColor: {r: 0.6792453, g: 0.5871384, b: 0.22748311, a: 1}
+  waterColor: {r: 0.18503025, g: 0.32211325, b: 0.6226415, a: 1}

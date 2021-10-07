@@ -308,13 +308,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   collected: 0
-  clicked: 0
   spawnPos: 0
   region: 0
   boat: {fileID: 0}
   speed: 0.2
   target: {x: 0, y: 0}
-  multiplier: 0
+  multiplier: 2
 --- !u!61 &1036021540216111344
 BoxCollider2D:
   m_ObjectHideFlags: 0
