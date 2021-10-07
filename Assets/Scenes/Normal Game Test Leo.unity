@@ -2025,7 +2025,7 @@ SpriteRenderer:
   m_SortingOrder: 181
   m_Sprite: {fileID: 1466651465733936377, guid: 5e32b6eb3044df74e828014e2df1c785,
     type: 3}
-  m_Color: {r: 0.4292453, g: 0.90670377, b: 1, a: 1}
+  m_Color: {r: 0.2460395, g: 0.6521158, b: 0.9150943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2241,12 +2241,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5f9383fc0e65c4c8a0f817863863d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastWave: {fileID: 0}
   waveCustomColor: {r: 0, g: 0, b: 0, a: 0}
-  usingWaveCustomColor: 0
+  changingWaveCustomColor: 0
+  lastWave: {fileID: 861841553}
+  reflectionOriginalColor: {r: 0, g: 0, b: 0, a: 0}
+  underwaterOriginalColor: {r: 0, g: 0, b: 0, a: 0}
+  panelOriginalColor: {r: 0, g: 0, b: 0, a: 0}
+  wavesName: 'Waves Front '
+  horizonLine: {fileID: 1061445404}
+  horizonLineColor: {r: 0, g: 0, b: 0, a: 0}
+  oceanSurface: {fileID: 1842671943}
+  oceanSurfaceColor: {r: 0, g: 0, b: 0, a: 0}
+  boatWaves: {fileID: 810658119}
+  boatWavesColor: {r: 0, g: 0, b: 0, a: 0}
+  oceanReflections: {fileID: 2083227294}
+  oceanReflectionsColor: {r: 0, g: 0, b: 0, a: 0}
   skyBG: {fileID: 1301790689}
   skyCustomColor: {r: 0, g: 0, b: 0, a: 0}
-  usingSkyCustomColor: 0
+  changingSkyCustomColor: 0
+--- !u!1 &861841553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5196746851916012352, guid: ae33672c28a04504da0898228bd03ffc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5196746851565484332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &897957908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,7 +2664,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 37254dd04eb284148b362dc9f1e9432a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9009434, g: 0.9942742, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3599,7 +3617,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4a8bdb3c4a14e804b835d8074c2a3d0b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5235849, g: 0.7800998, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4582,6 +4600,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Events Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6188895321581916179, guid: 56c07b82242a2c942b6b97d579c95ebd,
+        type: 3}
+      propertyPath: eventCooldown
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c07b82242a2c942b6b97d579c95ebd, type: 3}
 --- !u!1 &1597602164
@@ -5076,7 +5099,7 @@ SpriteRenderer:
   m_SortingOrder: 180
   m_Sprite: {fileID: 4818202211415186034, guid: 5e32b6eb3044df74e828014e2df1c785,
     type: 3}
-  m_Color: {r: 0.071110725, g: 0.7513874, b: 0.8867924, a: 1}
+  m_Color: {r: 0.2688679, g: 0.8209055, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

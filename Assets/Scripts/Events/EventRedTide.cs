@@ -7,6 +7,7 @@ public class EventRedTide : EventBase
     [SerializeField] float speedMultiplier;
     [SerializeField] float strenghtMultiplier;
     [SerializeField] Color waterColor;
+    [SerializeField] Color skyColor;
 
     public override void EventCameraPosition()
     {
@@ -30,12 +31,15 @@ public class EventRedTide : EventBase
         SpawnerManager.Instance.ChangeSpeedMultiplier();
         SpawnerManager.Instance.ChangeStrenghtMultiplier();
         BackgroundHandler.Singleton.ToogleWaveCustomColor(false);
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(false);
         CameraController.Singleton.ChangeCameraPos(Vector2.zero);
     }
 
     public override void EventVisualEffect()
     {
         BackgroundHandler.Singleton.ChangeWaveCustomColor(waterColor);
+        BackgroundHandler.Singleton.ChangeSkyCustomColor(skyColor);
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(true);
         BackgroundHandler.Singleton.ToogleWaveCustomColor(true);
     }
 

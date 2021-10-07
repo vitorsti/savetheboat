@@ -5,8 +5,8 @@ using UnityEngine;
 public class EventThunderstorm : EventBase
 {
     [SerializeField] float speedMultiplier;
-    [SerializeField] Color skyColor;
     [SerializeField] GameObject lightnings;
+    [SerializeField] Color skyColor;
 
     public override void EventCameraPosition()
     {

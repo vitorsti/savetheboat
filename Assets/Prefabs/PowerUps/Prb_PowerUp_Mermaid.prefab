@@ -142,15 +142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a434c50408723742915ad78253de852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 30
   collected: 0
-  clicked: 0
   spawnPos: 0
   region: 0
   boat: {fileID: 0}
   speed: 0.2
   target: {x: 0, y: 0}
-  multiplier: 0
+  multiplier: 2
 --- !u!61 &8926589182373493328
 BoxCollider2D:
   m_ObjectHideFlags: 0

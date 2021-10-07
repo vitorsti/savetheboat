@@ -306,9 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce1093c6c0fd8546ba147855fe889a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 20
   collected: 0
-  clicked: 0
   spawnPos: 0
   region: 0
   boat: {fileID: 0}

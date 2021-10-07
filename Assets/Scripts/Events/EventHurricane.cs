@@ -5,6 +5,7 @@ using UnityEngine;
 public class EventHurricane : EventBase
 {
     [SerializeField] float speedMultiplier;
+    [SerializeField] Color skyColor;
 
     public override void EventMechanic()
     {
@@ -13,11 +14,13 @@ public class EventHurricane : EventBase
 
     public override void EventVisualEffect()
     {
-        Debug.Log("HURRICANE");
+        BackgroundHandler.Singleton.ChangeSkyCustomColor(skyColor);
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(true);
     }
 
     public override void OnDestroy()
     {
+        BackgroundHandler.Singleton.ToogleSkyCustomColor(false);
         SpawnerManager.Instance.ChangeSpeedMultiplier();
     }
 
