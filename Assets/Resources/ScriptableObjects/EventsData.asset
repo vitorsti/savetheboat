@@ -17,11 +17,11 @@ MonoBehaviour:
     id: 0
     duration: 15
     description: adadadada
-    hasFound: 0
+    hasFound: 1
     image: {fileID: 7799570701045793206, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
   - name: Shark Nado
     id: 1
     duration: 15
     description: adadadada
-    hasFound: 0
-    image: {fileID: 7799570701045793206, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}
+    hasFound: 1
+    image: {fileID: 8641290968801132599, guid: 93bd2168e71bafa4aa261ad542a3e16e, type: 3}

@@ -188,20 +188,26 @@ public class BoatInfoWindowManager : MonoBehaviour
         {
             case 0:
                 price = data.GetHealthUpgradePrice(0, boatName);
+                if (data.GetHealthUpgradeStage(0, boatName) == data.GetHealthUpgradeTotalSatege(0, boatName))
+                    return;
                 break;
             case 1:
                 price = data.GetSpeedUpgradePrice(0, boatName);
-
+                if (data.GetSpeedUpgradeStage(0, boatName) == data.GetSpeedUpgradeTotalSatege(0, boatName))
+                    return;
                 break;
             case 2:
                 price = data.GetStrengthUpgradePrice(0, boatName);
-
+                if (data.GetStrengthUpgradeStage(0, boatName) == data.GetStrengthUpgradeTotalSatege(0, boatName))
+                    return;
                 break;
             case 3:
                 price = data.GetMoneyUpgradePrice(0, boatName);
-
+                if (data.GetMoneyUpgradeStage(0, boatName) == data.GetMoneyUpgradeTotalSatege(0, boatName))
+                    return;
                 break;
         }
+
         GameObject go = Instantiate(errorProof, this.transform.position, this.transform.rotation, this.transform);
         go.GetComponent<ErrorProofManager>().txt.text = "Want to buy upgrade? \n Price: " + price;
         go.GetComponent<ErrorProofManager>().yes.onClick.AddListener(delegate { BuyUpgrade(_index); });

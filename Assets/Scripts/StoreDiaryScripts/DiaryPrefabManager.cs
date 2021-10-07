@@ -13,7 +13,9 @@ public class DiaryPrefabManager : MonoBehaviour
     public GameObject mask;
     public Image itenImage;
     public TextMeshProUGUI buttonTxt;
+    public Button button;
     public TMP_FontAsset normalFont, morseFont;
+    public GameObject enemiesAndBossInfo, powerupAndEventsInfo;
     public int type;
 
     public string itemName;
@@ -56,7 +58,6 @@ public class DiaryPrefabManager : MonoBehaviour
 
                     itenImage.sprite = enemiesValues.GetImage(0, itemName);
                     buttonTxt.text = itemName /*+ "\n" + enemiesValues.GetDescription(0, itemName)*/;
-
                     break;
                 }
             case 1:
@@ -98,7 +99,7 @@ public class DiaryPrefabManager : MonoBehaviour
             case 3:
                 {
                     //events
-                     if (eventsValues.GetHasfound(0, itemName))
+                    if (eventsValues.GetHasfound(0, itemName))
                     {
                         mask.SetActive(false);
                         buttonTxt.font = normalFont;
@@ -113,6 +114,34 @@ public class DiaryPrefabManager : MonoBehaviour
                     buttonTxt.text = itemName/* + "\n" + eventsValues.GetDescription(0, itemName)*/;
                     break;
                 }
+        }
+
+        button.onClick.AddListener(delegate { SpawnInfoWindow(value); });
+
+    }
+
+    public void SpawnInfoWindow(int value)
+    {
+        if (value == 0 || value == 1)
+        {
+            GameObject parent = GameObject.FindWithTag("Diary");
+            
+            GameObject go = Instantiate(enemiesAndBossInfo, parent.transform.position, Quaternion.identity, parent.transform);
+            //go.GetComponent<BoatInfoWindowManager>().boatName = this.gameObject.name;
+            //go.name = this.name;
+            go.SendMessage("SetType", value, SendMessageOptions.DontRequireReceiver);
+            go.SendMessage("SetName", itemName, SendMessageOptions.DontRequireReceiver);
+        }
+
+        if (value == 2 || value == 3)
+        {
+            GameObject parent = GameObject.FindWithTag("Diary");
+            
+            GameObject go = Instantiate(powerupAndEventsInfo, parent.transform.position, Quaternion.identity, parent.transform);
+            //go.name = this.name;
+            //go.GetComponent<BoatInfoWindowManager>().boatName = this.gameObject.name;
+            go.SendMessage("SetType", value, SendMessageOptions.DontRequireReceiver);
+            go.SendMessage("SetName", itemName, SendMessageOptions.DontRequireReceiver);
         }
     }
 

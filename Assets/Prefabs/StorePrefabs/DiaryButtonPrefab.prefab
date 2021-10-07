@@ -53,8 +53,13 @@ MonoBehaviour:
   mask: {fileID: 6320515825484010282}
   itenImage: {fileID: 6320515824876388276}
   buttonTxt: {fileID: 6320515824552958415}
+  button: {fileID: 6320515825107022650}
   normalFont: {fileID: 11400000, guid: fdb1821fc1169e24bae8ad4acc555e10, type: 2}
   morseFont: {fileID: 11400000, guid: 14a65c89f0a448e4697f89db21cadcf8, type: 2}
+  enemiesAndBossInfo: {fileID: 2756322348354571195, guid: 511f1e67f6fa2c2488f9ba8ee130cec2,
+    type: 3}
+  powerupAndEventsInfo: {fileID: 2148366014626069947, guid: 5419fd83cadcf054aabf47ed1968bc6b,
+    type: 3}
   type: 0
   itemName: 
 --- !u!1 &6320515824552958413
