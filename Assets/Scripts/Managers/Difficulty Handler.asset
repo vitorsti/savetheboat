@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b767ef1d53a46154e99b3b5f510ad7c3, type: 3}
+  m_Name: Difficulty Handler
+  m_EditorClassIdentifier: 
+  levels:
+  - killsToReach: 0
+    spawnQtdLimit: 5
+    spawnCycleCd: 2
+    spawnCd: 1.5
+    aerialSpawner: 1
+    aerialList:
+    - {fileID: 4070133004162518495, guid: c42f9ce52d974d842aff107a828b1944, type: 3}
+    aquaticSpawner: 1
+    aquaticList:
+    - {fileID: 2590903115841297855, guid: f94bdf60359c4414abac41b96712760a, type: 3}
+    events: 000000000100000002000000030000000400000005000000
+  - killsToReach: 3
+    spawnQtdLimit: 4
+    spawnCycleCd: 1.5
+    spawnCd: 1
+    aerialSpawner: 1
+    aerialList:
+    - {fileID: 4070133004162518495, guid: c42f9ce52d974d842aff107a828b1944, type: 3}
+    aquaticSpawner: 1
+    aquaticList:
+    - {fileID: 4070133004162518495, guid: c42f9ce52d974d842aff107a828b1944, type: 3}
+    events: 000000000100000002000000030000000400000005000000
+  - killsToReach: 6
+    spawnQtdLimit: 8
+    spawnCycleCd: 1.5
+    spawnCd: 1
+    aerialSpawner: 1
+    aerialList:
+    - {fileID: 2590903115841297855, guid: f94bdf60359c4414abac41b96712760a, type: 3}
+    aquaticSpawner: 1
+    aquaticList:
+    - {fileID: 2590903115841297855, guid: f94bdf60359c4414abac41b96712760a, type: 3}
+    events: 000000000100000002000000
