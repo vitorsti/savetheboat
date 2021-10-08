@@ -20,7 +20,7 @@ MonoBehaviour:
     speed: 10
     type: 0
     image: {fileID: 21300000, guid: fe41cf7ef42c22642a7fd491ce3400aa, type: 3}
-    hasFound: 0
+    hasFound: 1
     description: adadadadad
   - name: Shark
     id: 1
